@@ -15,7 +15,7 @@ class GathersController < ApplicationController
     @gahter = Gather.new(user_params)
     if @gather.save
       flash[:info] = "ぎゃざーをつくったよ"
-      redirect_to_gathers_url
+      redirect_to gathers_url
     else
       render 'new'
     end
@@ -29,21 +29,21 @@ class GathersController < ApplicationController
     @gahter = Gather.find(:id)
     if @gather.update_attributes(gather_params)
       flash[:success] = "ぎゃざーをこうしんしたよ"
-      redirect_to @gather
+      redirect_to gather_url(params[:id])
     else
-      render 'edit'
+      render edit_gather_path
     end
   end
 
   def destroy
-    Gather.find(params[:id].destroy
+    Gather.find(params[:id]).destroy
     flash[:success] = "ぎゃざーをけしたよ"
-    redirect_to_gathers_url
+    redirect_to gathers_url
   end
 
   private
 
-    def gather_params
-      params.require(:gather).permit(:name, :description, :user_id)
-    end
+  def gather_params
+    params.require(:gather).permit(:name, :description, :user_id)
+  end
 end
