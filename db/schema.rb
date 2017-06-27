@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627092042) do
+ActiveRecord::Schema.define(version: 20170627100402) do
 
   create_table "gathers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20170627092042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_gathers_on_user_id"
+  end
+
+  create_table "gathers_users_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "gather_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gather_id"], name: "index_gathers_users_relations_on_gather_id"
+    t.index ["user_id"], name: "index_gathers_users_relations_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -40,4 +49,6 @@ ActiveRecord::Schema.define(version: 20170627092042) do
   end
 
   add_foreign_key "gathers", "users"
+  add_foreign_key "gathers_users_relations", "gathers"
+  add_foreign_key "gathers_users_relations", "users"
 end
