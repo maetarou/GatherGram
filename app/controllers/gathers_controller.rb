@@ -1,6 +1,6 @@
 class GathersController < ApplicationController
   def index
-    @gathers = Gather.find(:all)
+    # @gathers = Gather.find(:all)
   end
 
   def show
