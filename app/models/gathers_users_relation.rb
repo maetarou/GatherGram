@@ -1,0 +1,2 @@
+class GathersUsersRelation < ApplicationRecord
+end
