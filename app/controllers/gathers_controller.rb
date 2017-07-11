@@ -12,7 +12,7 @@ class GathersController < ApplicationController
   end
 
   def create
-    @gahter = current_user.gathers.new(user_params)
+    @gather = current_user.gathers.new(gather_params)
     if @gather.save
       flash[:info] = "ぎゃざーをつくったよ"
       redirect_to gathers_url
