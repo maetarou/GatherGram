@@ -1,10 +1,10 @@
 class GathersController < ApplicationController
   def index
-    # @gathers = Gather.find(:all)
+    @gathers = Gather.find.all
   end
 
   def show
-    @gather = Gather.find(:id)
+    @gather = Gather.find(params[:id])
   end
 
   def new
@@ -22,11 +22,11 @@ class GathersController < ApplicationController
   end
 
   def edit
-    @gather = Gather.find(params(:id))
+    @gather = Gather.find(params[:id])
   end
 
   def update
-    @gahter = Gather.find(:id)
+    @gahter = Gather.find(params[:id])
     if @gather.update_attributes(gather_params)
       flash[:success] = "ぎゃざーをこうしんしたよ"
       redirect_to gather_url(params[:id])
