@@ -1,6 +1,6 @@
 class GathersController < ApplicationController
   def index
-    @gathers = Gather.find.all
+    @gathers = Gather.all
   end
 
   def show
@@ -12,7 +12,7 @@ class GathersController < ApplicationController
   end
 
   def create
-    @gahter = Gather.new(user_params)
+    @gahter = current_user.gathers.new(user_params)
     if @gather.save
       flash[:info] = "ぎゃざーをつくったよ"
       redirect_to gathers_url
@@ -44,6 +44,6 @@ class GathersController < ApplicationController
   private
 
   def gather_params
-    params.require(:gather).permit(:name, :description, :user_id)
+    params.require(:gather).permit(:name, :description)
   end
 end
