@@ -1,3 +1,9 @@
-= gather.name
-= gather.description
-= link_to 'もっと詳しく', gather_path(gather)
+.gather__index__contents__content
+  .gather__index__contents__content__image
+    | imageコンテンツ入れる
+  .gather__index__contents__content__name
+    = gather.name
+  .gather__index__contents__content__description
+    = gather.description
+  .gather__index__contents__content__more-link
+    = link_to 'もっと詳しく', gather_path(gather)
