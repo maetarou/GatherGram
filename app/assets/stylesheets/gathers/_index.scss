@@ -1,4 +1,6 @@
 .gather__index {
+  min-height: calc(100vh - (#{$header_height} + #{$footer_height}) - 30px);
+
   &__contents {
     margin: 10px 50px 0;
     text-align: center;
