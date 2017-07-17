@@ -1,0 +1,13 @@
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  height: 200px;
+  background-color: $main_color;
+
+  &__copy-right {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 18px;
+  }
+}
