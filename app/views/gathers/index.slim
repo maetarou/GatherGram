@@ -1,6 +1,2 @@
 h1 gather 一覧
-- if @gathers.any?
-  - @gathers.each do |gather|
-    = gather.name
-    = gather.description
-    = link_to "もっとくわしく", gather
+= render partial: @gathers
