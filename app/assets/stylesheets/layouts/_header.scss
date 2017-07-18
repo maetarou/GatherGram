@@ -1,7 +1,24 @@
 .header {
+  display: flex;
+  height: $header_height;
+  line-height: $header_height;
   background-color: $main_color;
 
   &__title {
+    display: inline-block;
     font-size: 42px;
+  }
+
+  &__contents {
+    display: flex;
+
+    &-left {
+    }
+
+    &-right {
+      display: flex;
+      position: absolute;
+      right: 0;
+    }
   }
 }
