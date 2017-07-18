@@ -1,3 +1,9 @@
 body {
   background-image: url('/assets/bg-picture.png');
+
+  .contents {
+    min-height: calc(100vh - (#{$header_height} + #{$footer_height}) - 30px);
+    margin: 10px 50px 0;
+    text-align: center;
+  }
 }
