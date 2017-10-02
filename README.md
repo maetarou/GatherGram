@@ -1,6 +1,6 @@
 # OIC::Gather
 
 ## Version
-- Ruby 2.4.1
+- Ruby 2.4.2
 - RoR 5.1.1
 
