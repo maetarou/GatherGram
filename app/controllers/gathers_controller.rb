@@ -1,14 +1,15 @@
 class GathersController < ApplicationController
   def index
     @gathers = Gather.all
+    render json: @gathers
   end
 
   def show
     @gather = Gather.find(params[:id])
+    render json: @gather
   end
 
   def new
-    @gather = Gather.new
   end
 
   def create
@@ -22,7 +23,6 @@ class GathersController < ApplicationController
   end
 
   def edit
-    @gather = Gather.find(params[:id])
   end
 
   def update
