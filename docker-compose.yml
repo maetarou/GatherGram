@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     build: .
-    container_name: "oic_gather"
+    container_name: "oic_gather_server"
     ports:
       - "3000:3000"
     command: bundle exec puma
@@ -12,6 +12,13 @@ services:
       - db
     tty: true
     stdin_open: true
+
+  front:
+    build: ./frontend/.
+    container_name: "oic_gather_front"
+    ports:
+      - "8080:8080"
+    command: npm run start
 
   db:
     image: mysql:5.7
