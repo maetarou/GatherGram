@@ -8,8 +8,10 @@
     "build": "webpack --progress --colors"
   },
   "dependencies": {
+    "material-ui": "^0.19.4",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "react-tap-event-plugin": "^3.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
