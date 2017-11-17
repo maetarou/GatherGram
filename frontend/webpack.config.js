@@ -16,5 +16,11 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
+  },
+  devServer: {
+    contentBase: './',
+    inline: true,
+    port: 8080,
+    host: '0.0.0.0'
   }
 }
