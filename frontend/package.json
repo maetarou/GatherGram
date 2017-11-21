@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack --progress --colors"
+    "start": "webpack -w -d & browser-sync start --config bs-config.js"
   },
   "dependencies": {
     "material-ui": "^0.19.4",
