@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 
 module.exports = {
   entry: './src/app.js',
@@ -18,9 +17,10 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: './',
+    contentBase: path.resolve(__dirname, './'),
     inline: true,
     port: 8080,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    hot: true
   }
 }
