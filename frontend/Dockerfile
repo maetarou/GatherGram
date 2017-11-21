@@ -14,5 +14,4 @@ RUN apk update && \
 
 COPY . $APP_ROOT
 
-RUN npm install && \
-    npm run build
+RUN yarn

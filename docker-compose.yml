@@ -18,7 +18,7 @@ services:
     container_name: "oic_gather_front"
     ports:
       - "8080:8080"
-    command: npm run start
+    command: yarn start
 
   db:
     image: mysql:5.7

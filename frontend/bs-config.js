@@ -14,7 +14,7 @@
  */
 module.exports = {
     "ui": {
-        "port": 3001,
+        "port": 8000,
         "weinre": {
             "port": 8080
         }
@@ -30,7 +30,7 @@ module.exports = {
       "baseDir": "./"
     },
     "proxy": false,
-    "port": 3000,
+    "port": 8080,
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {
