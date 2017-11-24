@@ -7,6 +7,7 @@ import configureStore from './store/configureStore'
 
 // Container
 import Header from './containers/layouts/header'
+import Footer from './containers/layouts/footer'
 import Top from './containers/top'
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -19,6 +20,7 @@ ReactDOM.render(
     <div className='contents'>
       <Header />
       <Top />
+      <Footer />
     </div>
   </Provider>,
   document.getElementById('app')
