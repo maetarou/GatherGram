@@ -16,13 +16,14 @@ gulp.task('watch', () => {
 //ブラウザ表示
 gulp.task('browser-sync', () => {
   browserSync({
+    port: 8080,
     server: {
       baseDir: "./"   //サーバとなるrootディレクトリ
     }
   });
   //ファイルの監視
   //以下のファイルが変わったらリロードする
-  gulp.watch("./js/**/*.js",     ['reload']);
+  gulp.watch("./src/**/*.js",     ['reload']);
   gulp.watch("./*.html",         ['reload']);
 });
 
