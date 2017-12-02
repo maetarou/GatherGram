@@ -10,9 +10,6 @@ import Header from './containers/layouts/header'
 import Footer from './containers/layouts/footer'
 import Top from './containers/top'
 
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
-
 const store = configureStore()
 
 ReactDOM.render(
