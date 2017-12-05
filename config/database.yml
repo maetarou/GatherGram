@@ -9,13 +9,13 @@ default: &default
 
 development:
   <<: *default
-  database: oic_gather_development
+  database: gather_gram_development
 
 test:
   <<: *default
-  database: oic_gather_test
+  database: gather_gram_test
 
 production:
   <<: *default
-  database: oic_gather_production
-  password: <%= ENV['OIC_GATHER_DATABASE_PASSWORD'] %>
+  database: gather_gram_production
+  password: <%= ENV['GATHER_GRAM_DATABASE_PASSWORD'] %>
