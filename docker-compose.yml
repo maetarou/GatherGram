@@ -2,12 +2,12 @@ version: '3'
 services:
   app:
     build: .
-    container_name: "oic_gather_server"
+    container_name: "gather_gram_server"
     ports:
       - "3000:3000"
     command: bundle exec puma
     volumes:
-      - .:/home/oic_gather
+      - .:/home/GatherGram
     depends_on:
       - db
     tty: true
@@ -15,12 +15,12 @@ services:
 
   front:
     build: ./frontend/.
-    container_name: "oic_gather_front"
+    container_name: "gather_gram_front"
     ports:
       - "8080:8080"
     command: yarn start
     volumes:
-      - ./frontend:/home/oic_gather/frontend
+      - ./frontend:/home/GatherGram/frontend
 
   db:
     image: mysql:5.7

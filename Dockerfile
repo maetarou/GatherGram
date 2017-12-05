@@ -1,6 +1,6 @@
 FROM ruby:alpine
 
-ARG APP_ROOT=/home/oic_gather
+ARG APP_ROOT=/home/GatherGram
 WORKDIR $APP_ROOT
 
 RUN apk update && \
