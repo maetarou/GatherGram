@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
   render() {
     return(
       <div className='footer'>
-        ©2017 OIC::Gather
+        ©2017 GatherGram
       </div>
     )
   }

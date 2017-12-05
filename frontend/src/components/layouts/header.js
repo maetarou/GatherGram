@@ -12,12 +12,7 @@ export default class Header extends React.Component {
   render() {
     return(
       <div className='header'>
-        <h1>OIC::Gather</h1>
-        <ul>
-          <li>Gather投稿</li>
-          <li>通知</li>
-          <li>アイコン</li>
-        </ul>
+        <h1>GatherGram</h1>
       </div>
     )
   }

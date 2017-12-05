@@ -1,6 +1,6 @@
 FROM node:9.1.0-alpine
 
-ARG APP_ROOT=/home/oic_gather/frontend
+ARG APP_ROOT=/home/GatherGram/frontend
 WORKDIR $APP_ROOT
 
 RUN apk update && \
