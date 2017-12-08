@@ -4,5 +4,9 @@
 @import 'foundation/mixin';
 @import 'foundation/setting';
 
-// Laouts
+// Layouts
 @import 'layout/header';
+@import 'layout/contents';
+
+// pages
+@import 'object/project/map';

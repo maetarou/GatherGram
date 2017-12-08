@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Map from './map'
-
-export default class Top extends React.Component {
+export default class Map extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,9 +11,8 @@ export default class Top extends React.Component {
 
   render() {
     return(
-      <div className='top'>
-        <h1>Welcompe top screen!</h1>
-        <Map />
+      <div className='p-map'>
+        mapを埋め込む
       </div>
     )
   }

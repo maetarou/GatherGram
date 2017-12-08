@@ -13,9 +13,11 @@ const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <div className='contents'>
+    <div>
       <Header />
-      <Top />
+      <div className='l-contents'>
+        <Top />
+      </div>
     </div>
   </Provider>,
   document.getElementById('app')
