@@ -14,5 +14,6 @@ RUN apk update && \
 
 COPY . $APP_ROOT
 
-RUN yarn \
+RUN npm i -g yarn && \
+    yarn && \
     yarn add --force gulp-build

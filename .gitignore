@@ -23,3 +23,6 @@ vendor/bundle
 /.idea
 
 .DS_Store
+
+# config file of Instagram
+/config/initializers/instagram.rb
