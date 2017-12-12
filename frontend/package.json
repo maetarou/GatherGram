@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack -w & gulp"
+    "start": "webpack -w & yarn gulp"
   },
   "dependencies": {
     "react": "^16.1.1",
