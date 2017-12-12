@@ -11,8 +11,8 @@ export default class Header extends React.Component {
 
   render() {
     return(
-      <div className='header'>
-        <h1>GatherGram</h1>
+      <div className='l-header'>
+        <h1 className='l-header__title'>GatherGram</h1>
       </div>
     )
   }

@@ -18,11 +18,11 @@ gulp.task('default', ['js', 'sass', 'browser-sync', 'watch'])
 
 //sassの監視をして変換処理させる
 gulp.task('watch', () => {
-  gulp.watch(['./src/**'], () => {
+  gulp.watch(['./src/**/*.js'], () => {
     gulp.start(['js'])
   })
 
-  gulp.watch(['./css/**'], () => {
+  gulp.watch(['./css/**/*.scss'], () => {
     gulp.start(['sass'])
   })
 })
@@ -62,10 +62,15 @@ gulp.task("sass", () => {
 
 // reactをbuild
 gulp.task("js", () => {
-  webpackStream(webpackConfig, webpack)
+  gulp.src("./src**/*.js")
+    .pipe(plumber({
+      errorHandler: notify.onError("Error: <%= error.message %>")
+    }))
+    .pipe(webpackStream(webpackConfig, webpack))
     .pipe(gulp.dest("./dist"))
     .pipe(browserSync.stream())
 })
+
 
 //ブラウザリロード処理
 gulp.task('reload', () => {

@@ -7,17 +7,17 @@ import configureStore from './store/configureStore'
 
 // Container
 import Header from './containers/layouts/header'
-import Footer from './containers/layouts/footer'
 import Top from './containers/top'
 
 const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <div className='contents'>
+    <div>
       <Header />
-      <Top />
-      <Footer />
+      <div className='l-contents'>
+        <Top />
+      </div>
     </div>
   </Provider>,
   document.getElementById('app')
