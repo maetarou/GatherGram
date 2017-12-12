@@ -18,11 +18,11 @@ gulp.task('default', ['js', 'sass', 'browser-sync', 'watch'])
 
 //sassの監視をして変換処理させる
 gulp.task('watch', () => {
-  gulp.watch(['./src/**/*.js'], () => {
+  gulp.watch(['./src/**'], () => {
     gulp.start(['js'])
   })
 
-  gulp.watch(['./css/**/*.scss'], () => {
+  gulp.watch(['./css/**'], () => {
     gulp.start(['sass'])
   })
 })
@@ -37,8 +37,8 @@ gulp.task('browser-sync', () => {
   })
   //ファイルの監視
   //以下のファイルが変わったらリロードする
-  gulp.watch("./src/**/*.js",     ['reload'])
-  gulp.watch("./css/**/*.scss",   ['reload'])
+  gulp.watch("./src/**",     ['reload'])
+  gulp.watch("./css/**",   ['reload'])
 })
 
 //sassをcssに変換
