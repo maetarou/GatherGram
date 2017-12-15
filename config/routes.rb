@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'gather_gram#index'
+  root 'gather_gram#connect'
+
+  get 'index', to: 'gather_gram#index'
 
   # instagram routes
   get 'auth/instagram/connect', to: 'gather_gram#connect'
