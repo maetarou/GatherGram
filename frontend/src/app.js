@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 
 // Container
-import Sidebar from 'react-sidebar'
 import Header from './containers/layouts/header'
 import Top from './containers/top'
 
@@ -15,7 +14,6 @@ const store = configureStore()
 ReactDOM.render(
   <Provider store={store}>
     <div>
-      <Sidebar />
       <Header />
       <div className='l-contents'>
         <Top />
