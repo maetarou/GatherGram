@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  # devise_for :users
   root 'gather_gram#connect'
-
   get 'index', to: 'gather_gram#index'
 
   # instagram routes
