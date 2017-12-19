@@ -28,7 +28,7 @@ gulp.task('watch', () => {
 
 //sassをcssに変換
 gulp.task("sass", () => {
-  gulp.src("./css/**/*scss")
+  gulp.src("./css/**/*.scss")
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
@@ -47,7 +47,7 @@ gulp.task("sass", () => {
 
 // reactをbuild
 gulp.task("js", () => {
-  gulp.src("./src**/*.js")
+  gulp.src("./src/**")
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
