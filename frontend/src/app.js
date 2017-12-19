@@ -1,25 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
-// Container
+// Components
 import Header from './components/layouts/header'
 import Sidebar from './components/layouts/sidebar'
-import Top from './components/top/top'
-import Ranking from './components/ranking/ranking'
+import Tops from './components/tops/tops'
+import Rankings from './components/rankings/rankings'
 
-ReactDOM.render(
+const App = () => (
   <BrowserRouter>
     <div>
       <Header />
       <Sidebar />
-      <div className='l-contents'>
-        <Top />
-      </div>
 
-      <Route exact path='/' component={Top} />
-      <Route path='/ranking' component={Ranking} />
+      <div className='l-contents'>
+        <Route exact path='/tops' component={Tops} />
+        <Route path='/rankings' component={Rankings} />
+      </div>
     </div>
-  </BrowserRouter>,
+  </BrowserRouter>
+)
+
+ReactDOM.render(
+  <App />,
   document.getElementById('app')
 )
