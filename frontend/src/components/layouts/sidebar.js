@@ -11,7 +11,13 @@ export default class Sidebar extends React.Component {
   render() {
     return(
       <div className='p-sidebar'>
-        This is Sidebar
+        <div className='p-sidebar__header'>
+          ユーザーのプチ情報出すところ
+        </div>
+        <ul>
+          <li>ランキング</li>
+          <li>ユーザー情報</li>
+        </ul>
       </div>
     )
   }
