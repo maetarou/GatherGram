@@ -15,6 +15,8 @@ module OicGather
       g.helper         false
       g.test_framework false
     end
+
+    config.assets.enabled = false
   end
 end
 
