@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Sidebar extends React.Component {
   constructor(props) {
@@ -15,8 +16,8 @@ export default class Sidebar extends React.Component {
           ユーザーのプチ情報出すところ
         </div>
         <ul>
-          <li>ランキング</li>
-          <li>ユーザー情報</li>
+          <li><Link to='/rankings'>ランキング</Link></li>
+          <li><Link to='/user/info'>ユーザー情報</Link></li>
         </ul>
       </div>
     )
