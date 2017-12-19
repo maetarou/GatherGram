@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get 'auth/instagram/connect', to: 'gather_gram#connect'
   get 'auth/instagram/callback', to: 'gather_gram#callback'
 
+  resources :tops
+
 end
