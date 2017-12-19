@@ -41,8 +41,7 @@ gulp.task("sass", () => {
     // .pipe(cmq())
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest("./dist"))
-    .pipe(browserSync.stream())
+    .pipe(gulp.dest("../public"))
 })
 
 // reactをbuild
@@ -52,6 +51,5 @@ gulp.task("js", () => {
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest("./dist"))
-    .pipe(browserSync.stream())
+    .pipe(gulp.dest("../public"))
 })
