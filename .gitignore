@@ -12,9 +12,10 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/public/bundle.js
+/public/style.min.css
 
 /frontend/node_modules
-/frontend/dist
 /yarn-error.log
 
 .byebug_history

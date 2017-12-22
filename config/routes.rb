@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   get 'users/auth/instagram/callback', to: 'users/omniauth_callbacks#instagram'
   get 'sessions/destroy'
+  
+  resources :tops, only: :index
+  resources :rankings, only: :index
 end

@@ -1,6 +1,5 @@
 import webpack from 'webpack'
 import webpackStream from 'webpack-stream'
-import browserSync from 'browser-sync'
 import gulp from 'gulp'
 import sass from 'gulp-sass'
 import autoprefixer from 'gulp-autoprefixer'
@@ -14,7 +13,7 @@ import notify from 'gulp-notify'
 import webpackConfig from './webpack.config'
 
 //Default
-gulp.task('default', ['js', 'sass', 'browser-sync', 'watch'])
+gulp.task('default', ['watch', 'sass', 'js'])
 
 //sassの監視をして変換処理させる
 gulp.task('watch', () => {
@@ -27,23 +26,9 @@ gulp.task('watch', () => {
   })
 })
 
-//ブラウザ表示
-gulp.task('browser-sync', () => {
-  browserSync({
-    port: 8080,
-    server: {
-      baseDir: "./"
-    }
-  })
-  //ファイルの監視
-  //以下のファイルが変わったらリロードする
-  gulp.watch("./src/**",     ['reload'])
-  gulp.watch("./css/**",   ['reload'])
-})
-
 //sassをcssに変換
 gulp.task("sass", () => {
-  gulp.src("./css/**/*scss")
+  gulp.src("./css/**/*.scss")
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
@@ -56,23 +41,15 @@ gulp.task("sass", () => {
     // .pipe(cmq())
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest("./dist"))
-    .pipe(browserSync.stream())
+    .pipe(gulp.dest("../public"))
 })
 
 // reactをbuild
 gulp.task("js", () => {
-  gulp.src("./src**/*.js")
+  gulp.src("./src/**")
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest("./dist"))
-    .pipe(browserSync.stream())
-})
-
-
-//ブラウザリロード処理
-gulp.task('reload', () => {
-  browserSync.reload()
+    .pipe(gulp.dest("../public"))
 })

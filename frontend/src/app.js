@@ -1,24 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
+import { BrowserRouter, Route } from 'react-router-dom'
 
-// Store
-import configureStore from './store/configureStore'
+// Components
+import Header from './components/layouts/header'
+import Sidebar from './components/layouts/sidebar'
+import Tops from './components/tops/tops'
+import Rankings from './components/rankings/rankings'
 
-// Container
-import Header from './containers/layouts/header'
-import Top from './containers/top'
-
-const store = configureStore()
-
-ReactDOM.render(
-  <Provider store={store}>
+const App = () => (
+  <BrowserRouter>
     <div>
       <Header />
+      <Sidebar />
+
       <div className='l-contents'>
-        <Top />
+        <Route exact path='/tops' component={Tops} />
+        <Route path='/rankings' component={Rankings} />
       </div>
     </div>
-  </Provider>,
+  </BrowserRouter>
+)
+
+ReactDOM.render(
+  <App />,
   document.getElementById('app')
 )
