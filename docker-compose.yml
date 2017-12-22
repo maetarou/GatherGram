@@ -13,14 +13,14 @@ services:
     tty: true
     stdin_open: true
 
-#  front:
-#    build: ./frontend/.
-#    container_name: "gather_gram_front"
-#    ports:
-#      - "8080:8080"
-#    command: yarn start
-#    volumes:
-#      - ./frontend:/home/GatherGram/frontend
+  front:
+    build: ./frontend/.
+    container_name: "gather_gram_front"
+    ports:
+      - "8080:8080"
+    command: yarn start
+    volumes:
+      - ./frontend:/home/GatherGram/frontend
 
   db:
     image: mysql:5.7
