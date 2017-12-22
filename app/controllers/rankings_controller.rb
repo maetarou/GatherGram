@@ -1,5 +1,6 @@
 class RankingsController < ApplicationController
   def index
-    render json: { data: [] }
+    users = User.order('gather DESC').limit(10)
+    render json: users
   end
 end

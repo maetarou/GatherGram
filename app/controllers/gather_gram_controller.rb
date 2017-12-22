@@ -24,7 +24,4 @@ class GatherGramController < ApplicationController
     contents.push(current_user)
     render json: contents
   end
-  def tmp
-    # 確認用(消す)
-  end
 end
