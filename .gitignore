@@ -26,4 +26,4 @@ vendor/bundle
 .DS_Store
 
 # config file of Instagram
-/config/initializers/instagram.rb
+/config/omniauth.yml
