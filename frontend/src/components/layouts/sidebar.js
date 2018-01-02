@@ -16,6 +16,7 @@ export default class Sidebar extends React.Component {
           ユーザーのプチ情報出すところ
         </div>
         <ul>
+          <li><Link to='/'>トップ</Link></li>
           <li><Link to='/rankings'>ランキング</Link></li>
           <li><Link to='/user/info'>ユーザー情報</Link></li>
         </ul>
