@@ -1,4 +1,24 @@
-<% @client.user_recent_media.each do |media| %>
+<h1>GatherGramの投稿</h1>
+<% @myMedia.each do |media| %>
     <%= image_tag(media.images.low_resolution.url,:class => "image-rounded") %>
-    <%= media["caption"]["text"] %>
+    <%= media.try(:location)%>
+    <%= media.try(:caption).try(:text)%>
+    <%= media[:link]%>
+    <%= media[:user][:username]%>
+    <br>
 <% end %>
+
+<h2>くさたろうの投稿</h2>
+<% @kusatarouMedia.each do |media| %>
+    <%= image_tag(media.images.low_resolution.url,:class => "image-rounded") %>
+    <%= media.try(:location)%>
+    <%= media.try(:caption).try(:text)%>
+    <%= media[:link]%>
+    <%= media[:user][:username]%>
+    <br>
+<% end %>
+
+<!-- 認可されてからじゃないと動作しない -->
+<%#for location in @client.location_search("48.858844","2.294351","5000") %>
+<!--<li> #{location.name} <a href='https://www.google.com/maps/preview/@#{location.latitude},#{location.longitude},19z'>Map</a></li>-->
+<%#end %>

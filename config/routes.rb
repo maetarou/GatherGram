@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  root 'gather_gram#connect'
-
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  root 'tops#index'
   get 'index', to: 'gather_gram#index'
 
-  # instagram routes
-  get 'auth/instagram/connect', to: 'gather_gram#connect'
-  get 'auth/instagram/callback', to: 'gather_gram#callback'
-
+  get 'users/auth/instagram/callback', to: 'users/omniauth_callbacks#instagram'
+  get 'sessions/destroy'
+  
   resources :tops, only: :index
   resources :rankings, only: :index
 
