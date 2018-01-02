@@ -1,5 +1,3 @@
 class RankingsController < ApplicationController
-  def index
-    render json: { data: [] }
-  end
+  def index; end
 end
