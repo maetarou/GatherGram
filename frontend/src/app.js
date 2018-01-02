@@ -17,6 +17,7 @@ const App = () => (
       <div className='l-contents'>
         <Route exact path='/tops' component={Tops} />
         <Route path='/rankings' component={Rankings} />
+        <Route path='*' component={Tops} />
       </div>
     </div>
   </BrowserRouter>
