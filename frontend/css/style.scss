@@ -8,7 +8,10 @@
 @import 'layout/header';
 @import 'layout/contents';
 
-// pages
+// Component
+@import 'object/component/common';
+
+// Pages
 // Sidebar
 @import 'object/project/sidebar/sidebar';
 
