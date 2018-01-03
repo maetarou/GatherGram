@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 
 // Components
 import Header from './components/layouts/header'
@@ -9,17 +9,18 @@ import Tops from './components/tops/tops'
 import Rankings from './components/rankings/rankings'
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter basename="/">
     <div>
       <Header />
       <Sidebar />
 
       <div className='l-contents'>
-        <Route exact path='/tops' component={Tops} />
+        <Route exact path='/' component={Tops} />
         <Route path='/rankings' component={Rankings} />
+        <Route path='/user' component={Tops} />
       </div>
     </div>
-  </BrowserRouter>
+  </HashRouter>
 )
 
 ReactDOM.render(

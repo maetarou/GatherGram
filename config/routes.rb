@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   
   resources :tops, only: :index
   resources :rankings, only: :index
+
+  get '/user', to: 'users#show'
 end
