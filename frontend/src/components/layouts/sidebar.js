@@ -10,17 +10,22 @@ const SidebarIcon = (props) => {
   )
 }
 
-const SidebarContents = () => {
+const SidebarContents = (props) => {
   return(
-    <div className='p-sidebar'>
-      <div className='p-sidebar__header'>
-        ユーザーのプチ情報出すところ
+    <div className='p-sidebar__menu'>
+      <div className='p-sidebar__menu__in'>
+        <div className='p-sidebar__menu__in__header'>
+          ユーザーのプチ情報出すところ
+        </div>
+
+        <ul className='p-sidebar__menu__in__contents'>
+          <li><Link to='/'>トップ</Link></li>
+          <li><Link to='/rankings'>ランキング</Link></li>
+          <li><Link to='/user/info'>ユーザー情報</Link></li>
+        </ul>
       </div>
-      <ul>
-        <li><Link to='/'>トップ</Link></li>
-        <li><Link to='/rankings'>ランキング</Link></li>
-        <li><Link to='/user/info'>ユーザー情報</Link></li>
-      </ul>
+
+      <div className='p-sidebar__menu__out' onClick={props.handleClick}></div>
     </div>
   )
 }
@@ -36,16 +41,19 @@ export default class Sidebar extends React.Component {
   }
 
   handleClick() {
-    console.log(this.state)
-    this.setState(() => {
-      return {hideSidebar: true}
+    this.setState({
+      hideSidebar: (this.state.hideSidebar ? false : true)
     })
   }
 
   render() {
     return(
       <div className='p-sidebar'>
-        {this.state.hideSidebar ? <SidebarContents /> : <SidebarIcon handleClick={this.handleClick} />}
+        {
+          this.state.hideSidebar ?
+          <SidebarContents handleClick={this.handleClick} /> :
+          <SidebarIcon handleClick={this.handleClick} />
+        }
       </div>
     )
   }
