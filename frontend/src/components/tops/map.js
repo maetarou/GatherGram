@@ -4,8 +4,8 @@ import GoogleMap from 'google-map-react'
 const MarkerComponent = ({text}) => {
   return(
     <div className='p-marker'>
-    {text}
-      <img src='./marker.png'></img>
+      {text}
+      <img src='./marker.png' className='p-marker__img'></img>
     </div>
   )
 }
@@ -34,6 +34,7 @@ export default class Map extends React.Component {
           <MarkerComponent
             lat={34.663776}
             lng={135.518523}
+            text='大阪情報コンピュータ専門学校'
           />
         </GoogleMap>
       </div>
