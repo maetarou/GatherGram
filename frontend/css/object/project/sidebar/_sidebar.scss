@@ -1,15 +1,18 @@
 .p-sidebar {
-  display: inline-block;
-  width: 50vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
 
-  z-index: 2;
-  border-right: 1px solid #000;
-  background-color: #FFF;
+  &__menu {
+    display: inline-block;
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
 
-  &__header {
-    border-bottom: 1px solid #000;
+    z-index: 2;
+    border-right: 1px solid #000;
+    background-color: #FFF;
+
+    &__header {
+      border-bottom: 1px solid #000;
+    }
   }
 }
