@@ -24,4 +24,9 @@ class GatherGramController < ApplicationController
     contents.push(current_user)
     render json: contents
   end
+
+  def ranking
+    users = User.order('gather DESC').limit(10)
+    render json: users
+  end
 end
