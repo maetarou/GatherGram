@@ -1,0 +1,2 @@
+class SubmittedMedia < ApplicationRecord
+end
