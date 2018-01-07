@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216151246) do
+ActiveRecord::Schema.define(version: 20180107162209) do
+
+  create_table "submitted_media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "media_id"
+    t.bigint "user_id"
+    t.bigint "place_id"
+    t.integer "got_gather"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "uid", null: false
+    t.integer "gather", default: 0, null: false
     t.datetime "remember_created_at"
     t.string "remember_token"
     t.integer "sign_in_count", default: 0, null: false
@@ -22,8 +33,7 @@ ActiveRecord::Schema.define(version: 20171216151246) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "uid", null: false
-    t.integer "gather", default: 0, null: false
+    t.integer "submitted_recent_media_time", default: 0
   end
 
 end
