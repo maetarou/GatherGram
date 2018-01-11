@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "gulp",
-    "dev": "concurrently \"gulp\" \"webpack-dev-server\""
+    "build": "gulp",
+    "dev": "concurrently \"gulp watch\" \"webpack-dev-server\""
   },
   "dependencies": {
     "google-map-react": "^0.25.0",

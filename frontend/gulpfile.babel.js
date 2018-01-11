@@ -1,5 +1,3 @@
-import webpack from 'webpack'
-import webpackStream from 'webpack-stream'
 import gulp from 'gulp'
 import sass from 'gulp-sass'
 import autoprefixer from 'gulp-autoprefixer'
@@ -9,18 +7,12 @@ import cssmin from 'gulp-cssmin'
 import uglify from 'gulp-uglify'
 import plumber from 'gulp-plumber'
 import notify from 'gulp-notify'
-// webpack.configの読み込み
-import webpackConfig from './webpack.config'
 
 //Default
-gulp.task('default', ['watch', 'sass', 'js'])
+gulp.task('default', ['sass'])
 
 //sassの監視をして変換処理させる
 gulp.task('watch', () => {
-  gulp.watch(['./src/**'], () => {
-    gulp.start(['js'])
-  })
-
   gulp.watch(['./css/**'], () => {
     gulp.start(['sass'])
   })
@@ -41,17 +33,6 @@ gulp.task("sass", () => {
     // .pipe(cmq())
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    // .pipe(gulp.dest("../public"))
-    .pipe(gulp.dest("./dist"))
-})
-
-// reactをbuild
-gulp.task("js", () => {
-  gulp.src("./src/**")
-    .pipe(plumber({
-      errorHandler: notify.onError("Error: <%= error.message %>")
-    }))
-    .pipe(webpackStream(webpackConfig, webpack))
     // .pipe(gulp.dest("../public"))
     .pipe(gulp.dest("./dist"))
 })
