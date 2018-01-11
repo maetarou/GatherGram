@@ -5,7 +5,7 @@ const MarkerComponent = ({content}) => {
   return(
     <div className='p-marker'>
       <img src={content.imageLink} />
-      <img src='./marker.png' className='p-marker__img' />
+      <img src='./marker.png' className='p-marker__icon' />
     </div>
   )
 }
