@@ -1,10 +1,10 @@
 import React from 'react'
 import GoogleMap from 'google-map-react'
 
-const MarkerComponent = ({text}) => {
+const MarkerComponent = ({content}) => {
   return(
     <div className='p-marker'>
-      {text}
+      <img src={content.imageLink} />
       <img src='./marker.png' className='p-marker__img' />
     </div>
   )
@@ -16,7 +16,6 @@ export default class Map extends React.Component {
     this.state = {
       data: []
     }
-    console.log(testData)
   }
 
   render() {
@@ -33,24 +32,21 @@ export default class Map extends React.Component {
           defaultZoom = {19}
         >
 
-          {testData.map((location) => {
-            console.log(location.caption)
+          {testData.map((content) => {
             return(
               <MarkerComponent
-                lat={location.location.latitude}
-                lng={location.location.longitude}
-                text={location.caption}
-                key={location.caption}
+                lat={content.location.latitude}
+                lng={content.location.longitude}
+                content={content}
+                key={content.caption}
               />
-            )h
+            )
           })}
         </GoogleMap>
       </div>
     )
   }
 }
-
-
 
 const testData = 
   [
