@@ -5,7 +5,7 @@ const MarkerComponent = ({text}) => {
   return(
     <div className='p-marker'>
       {text}
-      <img src='./marker.png' className='p-marker__img'></img>
+      <img src='./marker.png' className='p-marker__img' />
     </div>
   )
 }
@@ -35,12 +35,14 @@ export default class Map extends React.Component {
 
           {testData.map((location) => {
             console.log(location.caption)
-            return  <MarkerComponent
-              lat={location.location.latitude}
-              lng={location.location.longitude}
-              test={location.caption}
-              key={location.caption}
-            />
+            return(
+              <MarkerComponent
+                lat={location.location.latitude}
+                lng={location.location.longitude}
+                text={location.caption}
+                key={location.caption}
+              />
+            )h
           })}
         </GoogleMap>
       </div>
