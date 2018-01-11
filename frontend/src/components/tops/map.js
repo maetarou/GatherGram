@@ -4,8 +4,7 @@ import GoogleMap from 'google-map-react'
 const MarkerComponent = ({content}) => {
   return(
     <div className='p-marker'>
-      <img src={content.imageLink} />
-      <img src='./marker.png' className='p-marker__icon' />
+      <img src={content.imageLink} className='p-marker__img' />
     </div>
   )
 }
