@@ -17,7 +17,8 @@ RUN apk update && \
       yaml \
       yaml-dev
 
-COPY . $APP_ROOT
+COPY Gemfile ./Gemfile
+COPY Gemfile.lock ./Gemfile.lock
 
 RUN gem install bundler && \
     bundle install --path vendor/bundle
