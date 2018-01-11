@@ -18,7 +18,7 @@ services:
     container_name: "gather_gram_front"
     ports:
       - "8080:8080"
-    command: yarn start
+    command: yarn dev
     volumes:
       - ./frontend:/home/GatherGram/frontend
 
