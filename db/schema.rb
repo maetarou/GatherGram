@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107162209) do
+ActiveRecord::Schema.define(version: 20180111171500) do
 
   create_table "submitted_media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "media_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180107162209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "submitted_recent_media_time", default: 0
+    t.string "name"
   end
 
 end
