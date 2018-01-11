@@ -1,5 +1,6 @@
 import React from 'react'
 import GoogleMap from 'google-map-react'
+import request from 'superagent'
 
 const MarkerComponent = ({content}) => {
   return(
@@ -13,13 +14,25 @@ export default class Map extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: this.getData()
     }
+
+    this.getData = this.getData.bind(this)
+  }
+
+  getData() {
+    request
+      .get('http://localhost:3000/index')
+      .end(function(err, res) {
+      })
+
+    return(<div />)
   }
 
   render() {
     return(
       <div className='p-map'>
+        {console.log(this.state)}
         <GoogleMap
           bootstrapURLKeys={{
             key: 'AIzaSyAEaUM4truzWM4M4Ob8s9_oUdMrhmxnzcI'
