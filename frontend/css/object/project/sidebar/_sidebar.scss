@@ -21,6 +21,23 @@
       &__header {
         border-bottom: 1px solid #000;
       }
+
+      &__contents {
+        font-size: 1rem;
+
+        li {
+          padding: 12px 0;
+        
+          span {
+            padding: 0 10px;
+          }
+
+          a {
+            display: inline;
+            color: #333;
+          }
+        }
+      }
     }
 
     &__out {

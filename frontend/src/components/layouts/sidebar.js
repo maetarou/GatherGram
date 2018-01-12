@@ -19,9 +19,18 @@ const SidebarContents = (props) => {
         </div>
 
         <ul className='p-sidebar__menu__in__contents'>
-          <li><Link to='/'>トップ</Link></li>
-          <li><Link to='/rankings'>ランキング</Link></li>
-          <li><Link to='/user/info'>ユーザー情報</Link></li>
+          <li>
+            <FontAwesome name='home' />
+            <Link to='/'>トップ</Link>
+          </li>
+          <li>
+            <FontAwesome name='line-chart' />
+            <Link to='/rankings'>ランキング</Link>
+          </li>
+          <li>
+            <FontAwesome name='cog' />
+            <Link to='/user/info'>ユーザー情報</Link>
+          </li>
         </ul>
       </div>
 
