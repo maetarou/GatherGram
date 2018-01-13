@@ -23,18 +23,16 @@ class GatherGramController < ApplicationController
     end
     response = {}
     response[:contents] = contents
-    response[:current_user] = current_user
-    response[:gather] = current_user.get_gather(client.user_recent_media)
     render json: response
   end
 
   def ranking
-    users = User.order('gather DESC').limit(10)
-    render json: users
-  end
-
-  def gather_history
-    res = SubmittedMedia.where(user_id: current_user[:uid]).order('id DESC').limit(10)
-    render json: res
+    response = {}
+    response[:top_users] = User.order('gather DESC').limit(10)
+    if user_signed_in?
+      users_gather = current_user[:gather]
+      response[:user_rank] = User.where(User.arel_table[:gather].gt(users_gather)).count + 1
+    end
+    render json: response
   end
 end
