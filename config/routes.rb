@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'tops#index'
+  get '/tops/index', to: 'tops#index'
   get 'index', to: 'gather_gram#index'
   get 'ranking', to: 'gather_gram#ranking'
   get 'gather_history', to: 'gather_gram#gather_history'
