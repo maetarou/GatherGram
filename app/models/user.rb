@@ -4,9 +4,6 @@ class User < ApplicationRecord
   devise :rememberable, :trackable, :omniauthable
 
   def self.find_for_oauth(auth)
-    p auth
-    p "hogeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-    p auth[:info][:image]
     user = User.where(uid: auth.uid).first
 
     unless user
