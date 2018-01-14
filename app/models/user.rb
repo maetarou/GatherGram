@@ -4,10 +4,13 @@ class User < ApplicationRecord
   devise :rememberable, :trackable, :omniauthable
 
   def self.find_for_oauth(auth)
+    p auth
+    p "hogeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    p auth[:info][:image]
     user = User.where(uid: auth.uid).first
 
     unless user
-      user = User.create(uid: auth[:uid], name: auth[:extra][:raw_info][:username])
+      user = User.create(uid: auth[:uid], name: auth[:extra][:raw_info][:username], profile_image: auth[:info][:image])
     end
     user
   end

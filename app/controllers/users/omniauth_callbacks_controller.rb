@@ -1,5 +1,4 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  CALLBACK_URL = 'http://localhost:3000/users/auth/instagram/callback'
   def instagram
     user = User.find_for_oauth(request.env['omniauth.auth'])
     if user.persisted?
