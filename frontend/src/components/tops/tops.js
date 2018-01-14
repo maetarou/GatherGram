@@ -2,6 +2,7 @@ import React from 'react'
 
 import Score from './score'
 import Map from './map'
+import User from './user'
 
 export default class Top extends React.Component {
   constructor(props) {
@@ -9,12 +10,28 @@ export default class Top extends React.Component {
     this.state = {
       data: []
     }
+
+    this.getUserData()
+  }
+
+  getUserData() {
+    return fetch('http://localhost:3000/index')
+             .then((response) => {
+               response.json().then((res) => {
+                 this.setState({data: res.current_user})
+               })
+             })
   }
 
   render() {
     return(
       <div className='top'>
-        <Score />
+
+        {console.log(this.state)}
+        <div className='l-navbar'>
+          <Score />
+          <User />
+        </div>
         <Map />
       </div>
     )
