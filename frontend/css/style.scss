@@ -6,6 +6,7 @@
 
 // Layouts
 @import 'layout/header';
+@import 'layout/navbar';
 @import 'layout/contents';
 
 // Component
@@ -16,5 +17,6 @@
 @import 'object/project/sidebar/sidebar';
 
 @import 'object/project/top/score';
+@import 'object/project/top/user';
 @import 'object/project/top/map';
 @import 'object/project/top/marker';
