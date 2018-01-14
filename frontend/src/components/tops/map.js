@@ -17,16 +17,16 @@ export default class Map extends React.Component {
     this.state = {
       data: []
     }
-    this.getData()
+    this.getContentsData()
   }
 
-  getData() {
+  getContentsData() {
     return fetch('http://localhost:3000/index')
-            .then((response) => {
-              response.json().then((res) => {
-                this.setState({ data: res.contents})
-              })
-            })
+             .then((response) => {
+               response.json().then((res) => {
+                 this.setState({data: res.contents})
+               })
+             })
   }
 
   render() {
