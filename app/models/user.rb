@@ -7,7 +7,7 @@ class User < ApplicationRecord
     user = User.where(uid: auth.uid).first
 
     unless user
-      user = User.create(uid: auth[:uid], name: auth[:extra][:raw_info][:username])
+      user = User.create(uid: auth[:uid], name: auth[:extra][:raw_info][:username], profile_image: auth[:info][:image])
     end
     user
   end
