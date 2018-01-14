@@ -26,8 +26,6 @@ export default class Top extends React.Component {
   render() {
     return(
       <div className='top'>
-
-        {console.log(this.state)}
         <div className='l-navbar'>
           <Score />
           <User />
