@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   get '/tops/index', to: 'tops#index'
   get 'index', to: 'gather_gram#index'
   get 'ranking', to: 'gather_gram#ranking'
-  get 'gather_history', to: 'gather_gram#gather_history'
 
   get 'users/auth/instagram/callback', to: 'users/omniauth_callbacks#instagram'
+  get '/user', to: 'users#show'
+  get 'user/get_gather', to: 'users#get_gather'
+  get 'user/gather_history', to: 'users#gather_history'
   get 'sessions/destroy'
-  
+
   resources :tops, only: :index
   resources :rankings, only: :index
-
-  get '/user', to: 'users#show'
 end
