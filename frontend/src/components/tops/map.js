@@ -17,6 +17,7 @@ export default class Map extends React.Component {
     this.state = {
       data: []
     }
+
     this.getContentsData()
   }
 
