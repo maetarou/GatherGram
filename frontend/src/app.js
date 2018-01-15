@@ -21,7 +21,6 @@ const App = () => (
   <HashRouter basename="/">
     <div>
       <Header />
-      <Sidebar />
 
       <div className='l-contents'>
         <Route exact path='/' component={Tops} />

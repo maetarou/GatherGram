@@ -2,10 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import FontAwesome from 'react-fontawesome'
 
+import User from '../tops/user'
+
 const SidebarIcon = (props) => {
   return(
     <div onClick={props.handleClick}>
-      <FontAwesome name='angle-double-right' />
+      {console.log(props)}
+      <User user={props.user} />
     </div>
   )
 }
@@ -43,10 +46,12 @@ export default class Sidebar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      user: {},
       hideSidebar: false
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.getUserData()
   }
 
   handleClick() {
@@ -55,13 +60,22 @@ export default class Sidebar extends React.Component {
     })
   }
 
+  getUserData() {
+    return fetch('http://localhost:3000/user')
+             .then((response) => {
+               response.json().then((res) => {
+                 this.setState({user: res})
+               })
+             })
+  }
+
   render() {
     return(
       <div className='p-sidebar'>
         {
           this.state.hideSidebar ?
           <SidebarContents handleClick={this.handleClick} /> :
-          <SidebarIcon handleClick={this.handleClick} />
+          <SidebarIcon handleClick={this.handleClick} user={this.state.user} />
         }
       </div>
     )
