@@ -16,7 +16,7 @@ module GnaviApi
       case response
         # 2xx系
         when Net::HTTPSuccess
-          Hash.from_xml(response.body).to_json
+          Hash.from_xml(response.body)
         # 3xx系
         when Net::HTTPRedirection
           logger.warn("Redirection: code=#{response.code} message=#{response.message}")
