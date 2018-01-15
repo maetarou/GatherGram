@@ -2,20 +2,13 @@ import React from 'react'
 import GoogleMap from 'google-map-react'
 import request from 'superagent'
 
-const MarkerComponent = ({content}) => {
-  return(
-    <div className='p-marker'>
-      <img src={content.imageLink} className='p-marker__img' />
-      <img src='./images/Arrow.png' className='p-marker__arrow' />
-    </div>
-  )
-}
+import Marker from './marker'
 
 export default class Map extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
     }
 
     this.getContentsData()
@@ -43,12 +36,15 @@ export default class Map extends React.Component {
           }}
           defaultZoom = {19}
         >
+
+          {/* コンテンツのマッピング */}
           {this.state.data.map((content) => {
             return(
-              <MarkerComponent
+              <Marker
                 lat={content.location.latitude}
                 lng={content.location.longitude}
                 content={content}
+                hideContent={this.state.hideContent}
                 key={content.caption}
               />
             )
