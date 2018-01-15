@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import FontAwesome from 'react-fontawesome'
 
 export default class Ranking extends React.Component {
   constructor(props) {
@@ -32,6 +34,9 @@ export default class Ranking extends React.Component {
           )
           console.log(user.id)
         })}
+        <Link to='/'>
+          <FontAwesome name='mail-reply' />
+        </Link>
       </div>
     )
   }
