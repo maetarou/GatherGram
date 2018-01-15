@@ -20,7 +20,10 @@ export default class Content extends React.Component {
             </div>
 
             <div className='p-content__in__info'>
-              ユーザー: {this.props.content.username}
+              {this.props.content.username}
+              {this.props.content.caption}
+              instagram link : <a href={this.props.content.link}>{this.props.content.link}</a>
+              {console.log(this.props.content.gnavi)}
             </div>
           </div>
         </div>
