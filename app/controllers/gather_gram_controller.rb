@@ -1,4 +1,5 @@
 class GatherGramController < ApplicationController
+  include GnaviApi
   CALLBACK_URL = 'http://localhost:3000/auth/instagram/callback'
   def index
     client = Instagram.client(access_token: session[:access_token])
@@ -17,6 +18,7 @@ class GatherGramController < ApplicationController
           content[:caption] = media.try(:caption).try(:text)
           content[:link] = media[:link]
           content[:username] = media[:user][:username]
+          content[:gnavi] = GnaviApi.get_store(media[:location][:name], media[:location][:latitude].to_s, media[:location][:longitude].to_s)
           contents.push(content)
         end
       end
