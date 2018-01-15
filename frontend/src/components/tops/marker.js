@@ -8,7 +8,7 @@ export default class Marker extends React.Component {
       data: [],
       hideContent: false
     }
-    console.log(props)
+
     this.handleClick = this.handleClick.bind(this)
   }
 
