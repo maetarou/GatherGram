@@ -8,14 +8,14 @@ import Sidebar from './components/layouts/sidebar'
 import Tops from './components/tops/tops'
 import Rankings from './components/rankings/rankings'
 
-(() =>  { 
-  fetch('http://localhost:3000/user/get_gather')
-    .then((response) => {
-      response.json().then((res) => {
-        console.log('hello', res)
-      })
-    })
-})()
+// (() =>  { 
+//   fetch('http://localhost:3000/user/get_gather')
+//     .then((response) => {
+//       response.json().then((res) => {
+//         console.log('hello', res)
+//       })
+//     })
+// })()
 
 const App = () => (
   <HashRouter basename="/">
