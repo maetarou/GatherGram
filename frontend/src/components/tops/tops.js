@@ -8,17 +8,17 @@ export default class Top extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      user: {}
     }
 
     this.getUserData()
   }
 
   getUserData() {
-    return fetch('http://localhost:3000/index')
+    return fetch('http://localhost:3000/user')
              .then((response) => {
                response.json().then((res) => {
-                 this.setState({data: res.current_user})
+                 this.setState({user: res})
                })
              })
   }
