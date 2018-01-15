@@ -43,6 +43,6 @@ export default class Content extends React.Component {
 
 const Restaurant = () => {
   return(
-    <li>aaa</li>
+    <li>Welcome gnavi menu</li>
   )
 }
