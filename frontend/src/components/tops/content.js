@@ -15,21 +15,21 @@ export default class Content extends React.Component {
         <div className='p-content__out' onClick={this.props.handleClick}>
           <div className='p-content__in'>
             <div className='p-content__in__images'>
-              <img src={this.props.content.imageLink} className='p-content__in__images__img' />
+              <a href={this.props.content.link}>
+                <img src={this.props.content.imageLink} className='p-content__in__images__img' />
+              </a>
             </div>
 
             <div className='p-content__in__info'>
-              <ul classNmae='p-content__in__info__list'>
+              <ul className='p-content__in__info__list'>
                 <li>
                   <span className='p-content__in__info__list__name'>
                     {this.props.content.username}
                   </span>
                 </li>
                 <li>{this.props.content.caption}</li>
-                <li>instagram link : <a href={this.props.content.link}>{this.props.content.link}</a></li>
                 <span>
-                  <li>{console.log(this.props.content.gnavi.response.rest)}</li>
-                  <li>restrante name : {this.props.content.gnavi.response.rest.name}</li>
+                  {console.log(this.props.content.gnavi)}
                   <Restaurant />
                 </span>
               </ul>
@@ -43,6 +43,6 @@ export default class Content extends React.Component {
 
 const Restaurant = () => {
   return(
-    <div>aaa</div>
+    <li>aaa</li>
   )
 }
