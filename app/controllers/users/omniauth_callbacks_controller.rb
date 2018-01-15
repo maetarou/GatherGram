@@ -4,7 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if user.persisted?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success')
       session[:access_token] = request.env['omniauth.auth']['credentials']['token']
-      sign_in(user, scope: :user)
+      sign_in(user)
       redirect_to '/index'
     else
       session['devise_data'] = request.env['omniauth.auth']
