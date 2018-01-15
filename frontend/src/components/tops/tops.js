@@ -28,7 +28,7 @@ export default class Top extends React.Component {
       <div className='top'>
         <div className='l-navbar'>
           <Score  score={this.state.user.gather}/>
-          <User />
+          <User user={this.state.user} />
         </div>
         <Map />
       </div>

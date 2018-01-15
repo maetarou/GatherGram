@@ -11,7 +11,7 @@ export default class User extends React.Component {
   render() {
     return(
       <div className='p-user'>
-        <img src='http://img.lovelive-matome.com/imgs/tikyu/1507/15/honoka.jpg' />
+        <img src={this.props.user.profile_image} />
       </div>
     )
   }
