@@ -29,7 +29,7 @@ export default class Ranking extends React.Component {
           return(
             <ul key={user.id} className='p-ranking' >
               <img
-                src='https://suzakijunichi.com/blog/wp-content/uploads/2016/11/1.jpg'
+                src='http://suzakijunichi.com/blog/wp-content/uploads/2016/11/1.jpg'
                 className='p-ranking__img'
               />
               {user.name}
