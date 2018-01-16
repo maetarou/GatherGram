@@ -12,7 +12,6 @@ import Rankings from './components/rankings/rankings'
   fetch('https://gathergram.herokuapp.com/user/get_gather')
     .then((response) => {
       response.json().then((res) => {
-        console.log('hello', res)
       })
     })
 })()

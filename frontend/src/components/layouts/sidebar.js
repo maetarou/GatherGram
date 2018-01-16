@@ -7,7 +7,6 @@ import User from '../tops/user'
 const SidebarIcon = (props) => {
   return(
     <div onClick={props.handleClick}>
-      {console.log(props)}
       <User user={props.user} />
     </div>
   )
