@@ -1,0 +1,15 @@
+.p-ranking {
+  height: calc(100);
+  &__img {
+    width: 150px;
+    height: 150px;
+  }
+
+  &__footer {
+    &__button {
+      position: absolute;
+      bottom: 0;
+    }
+    
+  }
+}

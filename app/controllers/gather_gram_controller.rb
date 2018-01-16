@@ -25,6 +25,7 @@ class GatherGramController < ApplicationController
     end
     response = {}
     response[:contents] = contents
+    response[:is_production] = Rails.env.production?
     render json: response
   end
 

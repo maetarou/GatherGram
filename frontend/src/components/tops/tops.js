@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Sidebar from '../layouts/sidebar'
 import Score from './score'
 import Map from './map'
 import User from './user'
@@ -15,7 +16,7 @@ export default class Top extends React.Component {
   }
 
   getUserData() {
-    return fetch('http://localhost:3000/user')
+    return fetch('https://gathergram.herokuapp.com/user')
              .then((response) => {
                response.json().then((res) => {
                  this.setState({user: res})
@@ -27,8 +28,8 @@ export default class Top extends React.Component {
     return(
       <div className='top'>
         <div className='l-navbar'>
-          <Score  score={this.state.user.gather}/>
-          <User user={this.state.user} />
+          <Sidebar />
+          <Score  score={this.state.user.gather} />
         </div>
         <Map />
       </div>

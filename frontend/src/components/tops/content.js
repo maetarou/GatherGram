@@ -6,7 +6,6 @@ export default class Content extends React.Component {
     this.state = {
       data: []
     }
-    console.log(props)
   }
 
 
@@ -16,18 +15,34 @@ export default class Content extends React.Component {
         <div className='p-content__out' onClick={this.props.handleClick}>
           <div className='p-content__in'>
             <div className='p-content__in__images'>
-              <img src={this.props.content.imageLink} className='p-content__in__images__img' />
+              <a href={this.props.content.link}>
+                <img src={this.props.content.imageLink} className='p-content__in__images__img' />
+              </a>
             </div>
 
             <div className='p-content__in__info'>
-              {this.props.content.username}
-              {this.props.content.caption}
-              instagram link : <a href={this.props.content.link}>{this.props.content.link}</a>
-              {console.log(this.props.content.gnavi)}
+              <ul className='p-content__in__info__list'>
+                <li>
+                  <span className='p-content__in__info__list__name'>
+                    {this.props.content.username}
+                  </span>
+                </li>
+                <li>{this.props.content.caption}</li>
+                <span>
+                  {console.log(this.props.content.gnavi)}
+                  <Restaurant />
+                </span>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     )
   }
+}
+
+const Restaurant = () => {
+  return(
+    <li>Welcome gnavi menu</li>
+  )
 }
