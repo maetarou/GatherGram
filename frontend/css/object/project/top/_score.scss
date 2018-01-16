@@ -1,10 +1,11 @@
-$score_color: #7fffd4;
-
 .p-score {
   margin: auto;
-  width: 35vw;
-  height: 100px;
+  width: 100vw;
+  height: 120px;
+  color: #E0FFFF;
   text-align: center;
-  line-height: 100px;
-  background-color: $score_color;
+  text-shadow: 2px 2px 0 #000;
+  font-weight: bold;
+  line-height: 120px;
+  background-image: url('https://i.pinimg.com/originals/a0/e4/30/a0e43045aacd05e6144754bbeff4892a.jpg');
 }
