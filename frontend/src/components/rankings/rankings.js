@@ -32,8 +32,8 @@ export default class Ranking extends React.Component {
                 src='http://suzakijunichi.com/blog/wp-content/uploads/2016/11/1.jpg'
                 className='p-ranking__img'
               />
-              {user.name}
-              {user.gather}
+              <li className='p-ranking__gather'>{user.gather}</li>
+              <li>{user.name}</li>
             </ul>
           )
         })}
