@@ -13,9 +13,10 @@ export default class Ranking extends React.Component {
   }
 
   getRankingData() {
-    return fetch('http://localhost:3000/ranking')
+    return fetch('https://gathergram.herokuapp.com/ranking')
              .then((response) => {
                response.json().then((res) => {
+                 console.dir(res)
                  this.setState({users: res.top_users})
                })
              })
@@ -24,19 +25,28 @@ export default class Ranking extends React.Component {
   render() {
     return(
       <div>
-        {console.log(this.state.users)}
         {this.state.users.map((user) => {
           return(
-            <ul key={user.id}>
-              <li>{user.name}</li>
-              <li>{user.gather}</li>
+            <ul key={user.id} className='p-ranking' >
+              <img
+                src='https://suzakijunichi.com/blog/wp-content/uploads/2016/11/1.jpg'
+                className='p-ranking__img'
+              />
+              {user.name}
+              {user.gather}
             </ul>
           )
-          console.log(user.id)
         })}
-        <Link to='/'>
-          <FontAwesome name='mail-reply' />
-        </Link>
+
+        <div className='p-ranking__footer'>
+          <div className='p-ranking__footer__rank'>
+            You're rank : 1位
+          </div>
+
+          <Link to='/' className='p-ranking__footer__button'>
+            <FontAwesome name='mail-reply' />
+          </Link>
+        </div>
       </div>
     )
   }

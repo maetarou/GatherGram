@@ -15,7 +15,7 @@ export default class Map extends React.Component {
   }
 
   getContentsData() {
-    return fetch('http://localhost:3000/index')
+    return fetch('https://gathergram.herokuapp.com/index')
              .then((response) => {
                response.json().then((res) => {
                  this.setState({data: res.contents})
