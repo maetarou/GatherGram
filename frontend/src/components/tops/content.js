@@ -28,7 +28,10 @@ export default class Content extends React.Component {
                   </span>
                 </li>
                 <li>{this.props.content.caption}</li>
-                <span>
+
+                <hr />
+
+                <span className='p-content__in__info__list__gnavi'>
                   <Restaurant />
                 </span>
               </ul>

@@ -17,7 +17,7 @@ const SidebarContents = (props) => {
     <div className='p-sidebar__menu'>
       <div className='p-sidebar__menu__in'>
         <div className='p-sidebar__menu__in__header'>
-          ユーザーのプチ情報出すところ
+          {props.user.name}
         </div>
 
         <ul className='p-sidebar__menu__in__contents'>
@@ -73,7 +73,7 @@ export default class Sidebar extends React.Component {
       <div className='p-sidebar'>
         {
           this.state.hideSidebar ?
-          <SidebarContents handleClick={this.handleClick} /> :
+          <SidebarContents handleClick={this.handleClick} user={this.state.user} /> :
           <SidebarIcon handleClick={this.handleClick} user={this.state.user} />
         }
       </div>
