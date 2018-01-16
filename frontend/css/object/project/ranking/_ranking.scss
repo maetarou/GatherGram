@@ -1,5 +1,8 @@
 .p-ranking {
-  height: calc(100);
+  display: flex;
+  height: calc(100vh - (150px + 200px));
+  font-size: 0.8em;
+
   &__img {
     width: 150px;
     height: 150px;
