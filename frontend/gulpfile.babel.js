@@ -7,13 +7,26 @@ import cssmin from 'gulp-cssmin'
 import uglify from 'gulp-uglify'
 import plumber from 'gulp-plumber'
 import notify from 'gulp-notify'
+import imagemin from 'gulp-imagemin'
+import gulpIf from 'gulp-if'
+import minimist from 'minimist'
+
+const envSettings = {
+  string: 'env',
+  default: {
+    env: process.env.NODE_ENV || 'development'
+  }
+}
+
+const options = minimist(process.argv.slice(2), envSettings)
+const config = {isProduction: options.env === 'production'}
 
 //Default
-gulp.task('default', ['sass'])
+gulp.task('default', ['watch', 'sass', 'image'])
 
 //sassの監視をして変換処理させる
 gulp.task('watch', () => {
-  gulp.watch(['./css/**'], () => {
+  gulp.watch(['./css/**/*.scss'], () => {
     gulp.start(['sass'])
   })
 })
@@ -33,6 +46,12 @@ gulp.task("sass", () => {
     // .pipe(cmq())
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    // .pipe(gulp.dest("../public"))
-    .pipe(gulp.dest("./dist"))
+    .pipe(gulp.dest(gulpIf(config.isProduction, '../public', './dist')))
+})
+
+// imageの圧縮
+gulp.task('image', () => {
+  gulp.src('./dist/images/**/*.+(jpg|jpeg|png|fig|svg)')
+    .pipe(imagemin({optimizationLevel: 7}))
+    .pipe(gulp.dest(gulpIf(config.isProduction, '../public/assets/images', './dist/assets/images')))
 })
