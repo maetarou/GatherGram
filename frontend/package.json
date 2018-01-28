@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "gulp",
-    "dev": "concurrently \"gulp watch\" \"webpack-dev-server\""
+    "dev": "concurrently \"webpack-dev-server --config webpack.config.development.js\" \"gulp --env development\"",
+    "build": "concurrently \"webpack --config webpack.config.production.js\" \"gulp sass image --env production\""
   },
   "dependencies": {
     "google-map-react": "^0.25.0",
@@ -29,6 +29,7 @@
     "gulp-combine-media-queries": "^0.2.0",
     "gulp-cssmin": "^0.2.0",
     "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
