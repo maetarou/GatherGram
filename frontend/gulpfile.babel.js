@@ -53,5 +53,5 @@ gulp.task("sass", () => {
 gulp.task('image', () => {
   gulp.src('./dist/images/**/*.+(jpg|jpeg|png|fig|svg)')
     .pipe(imagemin({optimizationLevel: 7}))
-    .pipe(gulp.dest(gulpIf(config.isProduction, '../public/images', './dist/assets/images')))
+    .pipe(gulp.dest(gulpIf(config.isProduction, '../public/images', './dist/images')))
 })
