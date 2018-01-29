@@ -13,14 +13,17 @@
 
     &__in {
       display: inline-block;
-      width: 50vw;
+      width: 80vw;
       height: calc(100vh - 150px);
 
       border-right: 1px solid #000;
-      background-color: #FFF;
+      background-color: #F4F5F7;
 
       &__header {
         border-bottom: 1px solid #000;
+        height: 150px;
+        padding-left: 15px;
+        line-height: 125px;
       }
 
       &__contents {
@@ -45,7 +48,7 @@
       position: absolute;
       top: 0;
       display: inline-block;
-      width: calc(50vw - 1px);
+      width: calc(20vw - 1px);
       height: calc(100vh - 150px);
     }
   }
