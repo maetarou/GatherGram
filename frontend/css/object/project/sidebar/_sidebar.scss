@@ -1,5 +1,8 @@
 .p-sidebar {
-  padding: 0 10px;
+  display: inline-block;
+  vertical-align: top;
+  width: 150px;
+  height: 150px;
 
   &__menu {
     position: absolute;
