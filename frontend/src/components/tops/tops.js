@@ -1,7 +1,5 @@
 import React from 'react'
 
-import Sidebar from '../layouts/sidebar'
-import Score from './score'
 import Map from './map'
 import User from './user'
 
@@ -27,10 +25,6 @@ export default class Top extends React.Component {
   render() {
     return(
       <div className='top'>
-        <div className='l-navbar'>
-          <Sidebar />
-          <Score  score={this.state.user.gather} />
-        </div>
         <Map />
       </div>
     )

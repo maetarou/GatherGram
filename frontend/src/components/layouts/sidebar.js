@@ -6,7 +6,7 @@ import User from '../tops/user'
 
 const SidebarIcon = (props) => {
   return(
-    <div onClick={props.handleClick}>
+    <div onClick={props.handleClick} className='p-sidebar'>
       <User user={props.user} />
     </div>
   )
@@ -71,10 +71,11 @@ export default class Sidebar extends React.Component {
   render() {
     return(
       <div className='p-sidebar'>
+        <SidebarIcon handleClick={this.handleClick} user={this.state.user} />
         {
           this.state.hideSidebar ?
           <SidebarContents handleClick={this.handleClick} user={this.state.user} /> :
-          <SidebarIcon handleClick={this.handleClick} user={this.state.user} />
+          null
         }
       </div>
     )
