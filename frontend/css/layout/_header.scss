@@ -2,9 +2,14 @@
   height: 150px;
   background-image: url('./images/polka-dots.png');
 
-  &__title {
-    font-size: 150px;
-    line-height: 150px;
-    color: #FFF;
+  &__logo {
+    padding: 10px;
+    width: 200px;
+    height: 150px;
+    box-sizing: border-box;
+  }
+
+  &__sidebar {
+    display: inline-block;
   }
 }
