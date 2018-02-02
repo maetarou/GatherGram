@@ -38,14 +38,14 @@ export default class Map extends React.Component {
         >
 
           {/* コンテンツのマッピング */}
-          {this.state.data.map((content) => {
+          {this.state.data.map((content, idx) => {
             return(
               <Marker
                 lat={content.location.latitude}
                 lng={content.location.longitude}
                 content={content}
                 hideContent={this.state.hideContent}
-                key={content.caption}
+                key={idx}
               />
             )
           })}
