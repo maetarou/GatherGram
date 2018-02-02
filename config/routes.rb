@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'tops#index'
 
   get 'index', to: 'gathergram#index'
+  get 'ranking', to: 'rankings#index'
 
   get 'users/auth/instagram/callback', to: 'users/omniauth_callbacks#instagram'
   get '/user', to: 'users#show'
