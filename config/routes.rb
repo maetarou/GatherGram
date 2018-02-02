@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'user/get_gather', to: 'users#get_gather'
   get 'user/gather_history', to: 'users#gather_history'
   get 'sessions/destroy'
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   resources :tops, only: :index
   resources :rankings, only: :index
