@@ -1,7 +1,7 @@
 class GathergramController < ApplicationController
   include GnaviApi
   def index
-    client = Instagram.client(access_token: '6675270868.a15464f.1a7d6cdef6c24e4ba7fd5087bf8345e5')
+    client = Instagram.client(access_token: session[:access_token])
 
     mediasHash = {}
     mediasHash[:myMedia] = client.user_recent_media
