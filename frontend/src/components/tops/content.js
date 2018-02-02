@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Restaurant from './restaurant'
+
 export default class Content extends React.Component {
   constructor(props) {
     super(props)
@@ -32,7 +34,7 @@ export default class Content extends React.Component {
                 <hr />
 
                 <span className='p-content__in__info__list__gnavi'>
-                  <Restaurant />
+                  <Restaurant gnavi={this.props.content.gnavi.response} />
                 </span>
               </ul>
             </div>
@@ -41,10 +43,4 @@ export default class Content extends React.Component {
       </div>
     )
   }
-}
-
-const Restaurant = () => {
-  return(
-    <li>Welcome gnavi menu</li>
-  )
 }
