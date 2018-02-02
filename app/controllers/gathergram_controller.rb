@@ -1,6 +1,5 @@
-class GatherGramController < ApplicationController
+class GathergramController < ApplicationController
   include GnaviApi
-  CALLBACK_URL = 'http://localhost:3000/auth/instagram/callback'
   def index
     client = Instagram.client(access_token: '6675270868.a15464f.1a7d6cdef6c24e4ba7fd5087bf8345e5')
 
@@ -26,16 +25,6 @@ class GatherGramController < ApplicationController
     response = {}
     response[:contents] = contents
     response[:is_production] = Rails.env.production?
-    render json: response
-  end
-
-  def ranking
-    response = {}
-    response[:top_users] = User.order('gather DESC').limit(10)
-    if user_signed_in?
-      users_gather = User.first[:gather]
-      response[:user_rank] = User.where(User.arel_table[:gather].gt(users_gather)).count + 1
-    end
     render json: response
   end
 end
