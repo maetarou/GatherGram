@@ -33,6 +33,10 @@ const SidebarContents = (props) => {
             <FontAwesome name='cog' />
             <Link to='/user/info'>ユーザー情報</Link>
           </li>
+          <li>
+            <FontAwesome name='cog' />
+            <Link to='/privacy_policy'>プライバシーポリシー</Link>
+          </li>
         </ul>
       </div>
 
