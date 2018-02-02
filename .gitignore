@@ -17,6 +17,7 @@
 /frontend/dist/*
 !/frontend/dist/index.html
 !/frontend/dist/images
+!/frontend/dist/HuiFont29.ttf
 
 .byebug_history
 
