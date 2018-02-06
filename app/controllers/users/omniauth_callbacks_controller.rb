@@ -5,7 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success')
       session[:access_token] = request.env['omniauth.auth']['credentials']['token']
       sign_in(user)
-      redirect_to '/index'
+      redirect_to root_path
     else
       session['devise_data'] = request.env['omniauth.auth']
       redirect_to root_path
