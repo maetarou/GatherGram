@@ -49,7 +49,6 @@ class User < ApplicationRecord
         got_gather = 50 - (place_count * 10)
         got_gather_sum += got_gather
       end
-      # TODO: ちゃんと外部キー使おう(userとplace)
       SubmittedMedia.create(
           media_id: media[:id],
           user_id: self.uid,
