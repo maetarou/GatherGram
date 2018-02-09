@@ -49,7 +49,7 @@ class User < ApplicationRecord
         got_gather = 50 - (place_count * 10)
         got_gather_sum += got_gather
       end
-      # TODO: ちゃんと外部キー使おう
+      # TODO: ちゃんと外部キー使おう(userとplace)
       SubmittedMedia.create(
           media_id: media[:id],
           user_id: self.uid,
@@ -58,6 +58,7 @@ class User < ApplicationRecord
           caption: media.try(:caption).try(:text),
           link: media[:link],
           place_id: media[:location][:id],
+          name: media[:location][:place_name],
           latitude: media[:location][:latitude],
           longitude: media[:location][:longitude],
           got_gather: got_gather)

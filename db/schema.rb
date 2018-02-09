@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180114025844) do
     t.string "caption"
     t.string "link"
     t.bigint "place_id"
+    t.string "name"
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
     t.integer "got_gather"
