@@ -15,7 +15,13 @@ ActiveRecord::Schema.define(version: 20180114025844) do
   create_table "submitted_media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "media_id"
     t.bigint "user_id"
+    t.string "username"
+    t.string "image_link"
+    t.string "caption"
+    t.string "link"
     t.bigint "place_id"
+    t.float "latitude", limit: 24
+    t.float "longitude", limit: 24
     t.integer "got_gather"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

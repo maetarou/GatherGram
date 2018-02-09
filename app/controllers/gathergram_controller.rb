@@ -5,7 +5,7 @@ class GathergramController < ApplicationController
 
     mediasHash = {}
     mediasHash[:myMedia] = client.user_recent_media
-    mediasHash[:kusatarouMedia] = client.user_recent_media(6736563468)
+    p SubmittedMedia.all
 
     contents = Array.new
     mediasHash.each do |key, medias|
