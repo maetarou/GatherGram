@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20180114025844) do
     t.integer "got_gather"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_submitted_media_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,7 +43,6 @@ ActiveRecord::Schema.define(version: 20180114025844) do
     t.integer "submitted_recent_media_time", default: 0
     t.string "name"
     t.string "profile_image"
-    t.index ["uid"], name: "index_users_on_uid"
   end
 
 end
