@@ -12,8 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20180114025844) do
 
-  create_table "submitted_media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "media_id"
+  create_table "submitted_media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string "media_id", limit: 100
     t.bigint "user_id"
     t.string "username"
     t.string "image_link"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180114025844) do
     t.index ["user_id"], name: "index_submitted_media_on_user_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.bigint "uid", null: false
     t.integer "gather", default: 0, null: false
     t.datetime "remember_created_at"

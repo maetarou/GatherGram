@@ -1,7 +1,7 @@
 class CreateSubmittedMedia < ActiveRecord::Migration[5.1]
   def change
     create_table :submitted_media do |t|
-      t.string :media_id
+      t.string :media_id, limit: 100
       t.integer :user_id, limit: 8
       t.string :username
       t.string :image_link
