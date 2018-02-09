@@ -2457,7 +2457,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SidebarIcon = function SidebarIcon(props) {
   return _react2.default.createElement(
     'div',
-    { onClick: props.handleClick },
+    { onClick: props.handleClick, className: 'p-sidebar' },
     _react2.default.createElement(_user2.default, { user: props.user })
   );
 };
@@ -2505,6 +2505,16 @@ var SidebarContents = function SidebarContents(props) {
             _reactRouterDom.Link,
             { to: '/user/info' },
             '\u30E6\u30FC\u30B6\u30FC\u60C5\u5831'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(_reactFontawesome2.default, { name: 'cog' }),
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/privacy_policy' },
+            '\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC'
           )
         )
       )
@@ -2555,7 +2565,8 @@ var Sidebar = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'p-sidebar' },
-        this.state.hideSidebar ? _react2.default.createElement(SidebarContents, { handleClick: this.handleClick, user: this.state.user }) : _react2.default.createElement(SidebarIcon, { handleClick: this.handleClick, user: this.state.user })
+        _react2.default.createElement(SidebarIcon, { handleClick: this.handleClick, user: this.state.user }),
+        this.state.hideSidebar ? _react2.default.createElement(SidebarContents, { handleClick: this.handleClick, user: this.state.user }) : null
       );
     }
   }]);
@@ -3391,22 +3402,28 @@ var _sidebar = __webpack_require__(36);
 
 var _sidebar2 = _interopRequireDefault(_sidebar);
 
-var _tops = __webpack_require__(86);
+var _tops = __webpack_require__(87);
 
 var _tops2 = _interopRequireDefault(_tops);
 
-var _rankings = __webpack_require__(115);
+var _rankings = __webpack_require__(116);
 
 var _rankings2 = _interopRequireDefault(_rankings);
 
+var _privacy_policy = __webpack_require__(117);
+
+var _privacy_policy2 = _interopRequireDefault(_privacy_policy);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Components
 (function () {
   fetch('https://gathergram.herokuapp.com/user/get_gather').then(function (response) {
     response.json().then(function (res) {});
   });
 })();
+
+// Components
+
 
 var App = function App() {
   return _react2.default.createElement(
@@ -3421,7 +3438,8 @@ var App = function App() {
         { className: 'l-contents' },
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _tops2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/rankings', component: _rankings2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _tops2.default })
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _tops2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/privacy_policy', component: _privacy_policy2.default })
       )
     )
   );
@@ -24330,6 +24348,14 @@ var _reactDom = __webpack_require__(16);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _sidebar = __webpack_require__(36);
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
+
+var _score = __webpack_require__(86);
+
+var _score2 = _interopRequireDefault(_score);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24358,11 +24384,9 @@ var Header = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'l-header' },
-        _react2.default.createElement(
-          'h1',
-          { className: 'l-header__title' },
-          'GatherGram'
-        )
+        _react2.default.createElement('img', { src: 'http://xn--hckp3ac2l.jp/wp-content/uploads/2016/07/sr-honoka-smile-7ga16-mae.jpg', className: 'l-header__logo' }),
+        _react2.default.createElement(_score2.default, null),
+        _react2.default.createElement(_sidebar2.default, { className: 'l-header__sidebar' })
       );
     }
   }]);
@@ -24411,13 +24435,74 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _sidebar = __webpack_require__(36);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _sidebar2 = _interopRequireDefault(_sidebar);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var _score = __webpack_require__(87);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-var _score2 = _interopRequireDefault(_score);
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Score = function (_React$Component) {
+  _inherits(Score, _React$Component);
+
+  function Score(props) {
+    _classCallCheck(this, Score);
+
+    var _this = _possibleConstructorReturn(this, (Score.__proto__ || Object.getPrototypeOf(Score)).call(this, props));
+
+    _this.state = {
+      data: []
+    };
+
+    _this.getScore();
+    return _this;
+  }
+
+  _createClass(Score, [{
+    key: 'getScore',
+    value: function getScore() {
+      var _this2 = this;
+
+      return fetch('https://gathergram.herokuapp.com/user').then(function (response) {
+        response.json().then(function (res) {
+          _this2.setState({ score: res.gather });
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-score' },
+        this.state.score,
+        'Gather'
+      );
+    }
+  }]);
+
+  return Score;
+}(_react2.default.Component);
+
+exports.default = Score;
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
 
 var _map = __webpack_require__(88);
 
@@ -24468,12 +24553,6 @@ var Top = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'top' },
-        _react2.default.createElement(
-          'div',
-          { className: 'l-navbar' },
-          _react2.default.createElement(_sidebar2.default, null),
-          _react2.default.createElement(_score2.default, { score: this.state.user.gather })
-        ),
         _react2.default.createElement(_map2.default, null)
       );
     }
@@ -24483,66 +24562,6 @@ var Top = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Top;
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Score = function (_React$Component) {
-  _inherits(Score, _React$Component);
-
-  function Score(props) {
-    _classCallCheck(this, Score);
-
-    var _this = _possibleConstructorReturn(this, (Score.__proto__ || Object.getPrototypeOf(Score)).call(this, props));
-
-    _this.state = {
-      data: []
-    };
-    return _this;
-  }
-
-  _createClass(Score, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'p-score' },
-        _react2.default.createElement(
-          'p',
-          null,
-          this.props.score,
-          'Point'
-        )
-      );
-    }
-  }]);
-
-  return Score;
-}(_react2.default.Component);
-
-exports.default = Score;
 
 /***/ }),
 /* 88 */
@@ -24628,13 +24647,13 @@ var Map = function (_React$Component) {
             },
             defaultZoom: 19
           },
-          this.state.data.map(function (content) {
+          this.state.data.map(function (content, idx) {
             return _react2.default.createElement(_marker2.default, {
               lat: content.location.latitude,
               lng: content.location.longitude,
               content: content,
               hideContent: _this3.state.hideContent,
-              key: content.caption
+              key: idx
             });
           })
         )
@@ -29255,6 +29274,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _restaurant = __webpack_require__(115);
+
+var _restaurant2 = _interopRequireDefault(_restaurant);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29322,7 +29345,7 @@ var Content = function (_React$Component) {
                 _react2.default.createElement(
                   'span',
                   { className: 'p-content__in__info__list__gnavi' },
-                  _react2.default.createElement(Restaurant, null)
+                  _react2.default.createElement(_restaurant2.default, { gnavi: this.props.content.gnavi.response })
                 )
               )
             )
@@ -29337,17 +29360,95 @@ var Content = function (_React$Component) {
 
 exports.default = Content;
 
-
-var Restaurant = function Restaurant() {
-  return _react2.default.createElement(
-    'li',
-    null,
-    'Welcome gnavi menu'
-  );
-};
-
 /***/ }),
 /* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Restaurant = function (_React$Component) {
+  _inherits(Restaurant, _React$Component);
+
+  function Restaurant(props) {
+    _classCallCheck(this, Restaurant);
+
+    var _this = _possibleConstructorReturn(this, (Restaurant.__proto__ || Object.getPrototypeOf(Restaurant)).call(this, props));
+
+    _this.state = {
+      gnavi: props.gnavi
+    };
+
+    console.log(_this.state.gnavi);
+    return _this;
+  }
+
+  _createClass(Restaurant, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'ul',
+        null,
+        console.log(this.state),
+        _react2.default.createElement(
+          'li',
+          null,
+          !this.props.gnavi.rest.name
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          !this.props.gnavi.rest.address
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          !this.props.gnavi.rest.tel
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          !this.props.gnavi.rest.opentime
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          !this.props.gnavi.rest.holiday
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          !this.props.gnavi.rest.url
+        )
+      );
+    }
+  }]);
+
+  return Restaurant;
+}(_react2.default.Component);
+
+exports.default = Restaurant;
+
+/***/ }),
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29453,6 +29554,145 @@ var Ranking = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Ranking;
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PrivacyPolicy = function (_React$Component) {
+  _inherits(PrivacyPolicy, _React$Component);
+
+  function PrivacyPolicy(props) {
+    _classCallCheck(this, PrivacyPolicy);
+
+    var _this = _possibleConstructorReturn(this, (PrivacyPolicy.__proto__ || Object.getPrototypeOf(PrivacyPolicy)).call(this, props));
+
+    _this.state = {
+      data: []
+    };
+    return _this;
+  }
+
+  _createClass(PrivacyPolicy, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'p-privacy_policy' },
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'GatherSpot\'s PrivacyPolicy'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          '\'GatherSpot\' is a tool for facilitating community of region by displaying Instagram\'s users contents on map around user. We would like to use this tool as many people as possible. This page is used to inform web application visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service. If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy. The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at GatherSpot , unless otherwise defined in this Privacy Policy.'
+        ),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Information Collection and Use'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name, email address. The information that we collect will be used to contact or identify you.'
+        ),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Cookies'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Cookies are files with small amount of data that is commonly used an anonymous unique identifier. These are sent to your browser from the website that you visit and are stored on your computer\'s hard drive. Our web application uses these "cookies" to collection information and to improve our Service. You have the option to either accept or refuse these cookies, and know when a cookie is being sent to your computer. If you choose to refuse our cookies, you may not be able to use some portions of our Service.'
+        ),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Security'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.'
+        ),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Links to Other Sites'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Our Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites, visit. We have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.'
+        ),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Children\'s Privacy'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Our Services do not address anyone under the age of 13. We do not knowingly collect personal identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.'
+        ),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Changes to This Privacy Policy'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.'
+        ),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Contact Us'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'contact: GatherSpot2018@gmail.com'
+        )
+      );
+    }
+  }]);
+
+  return PrivacyPolicy;
+}(_react2.default.Component);
+
+exports.default = PrivacyPolicy;
 
 /***/ })
 /******/ ]);
