@@ -1,8 +1,6 @@
 class GathergramController < ApplicationController
   include GnaviApi
   def index
-    client = Instagram.client(access_token: session[:access_token])
-
     contents = Array.new
      # 本来なら位置情報を基に適切なメディアを取ってくる(SubmittedMediaModelに書く)
       SubmittedMedia.all.each do |media|
