@@ -1,27 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import FontAwesome from 'react-fontawesome'
 
-export default class Ranking extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      users: []
-    }
-
-    this.getRankingData()
-  }
-
-  getRankingData() {
-    return fetch('https://gathergram.herokuapp.com/ranking')
-             .then((response) => {
-               response.json().then((res) => {
-                 console.dir(res)
-                 this.setState({users: res.top_users})
-               })
-             })
-  }
-
+class Ranking extends React.Component {
   render() {
     return(
       <div>
@@ -51,3 +33,9 @@ export default class Ranking extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.ranking}
+}
+
+export default connect(mapStateToProps)(Ranking)

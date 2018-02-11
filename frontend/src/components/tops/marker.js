@@ -1,7 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import Content from './content'
 
-export default class Marker extends React.Component {
+class Marker extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -32,3 +34,9 @@ export default class Marker extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.map}
+}
+
+export default connect(mapStateToProps)(Marker)

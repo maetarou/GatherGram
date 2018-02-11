@@ -1,17 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
 
 import Sidebar from './sidebar'
 import Score from './score'
 
-export default class Header extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: []
-    }
-  }
-
+class Header extends React.Component {
   render() {
     return(
       <div className='l-header'>
@@ -22,3 +15,9 @@ export default class Header extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.header}
+}
+
+export default connect(mapStateToProps)(Header)

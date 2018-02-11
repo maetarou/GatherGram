@@ -1,27 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import Map from './map'
 import User from './user'
 
-export default class Top extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      user: {}
-    }
-
-    this.getUserData()
-  }
-
-  getUserData() {
-    return fetch('https://gathergram.herokuapp.com/user')
-             .then((response) => {
-               response.json().then((res) => {
-                 this.setState({user: res})
-               })
-             })
-  }
-
+class Top extends React.Component {
   render() {
     return(
       <div className='top'>
@@ -30,3 +13,9 @@ export default class Top extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.tops}
+}
+
+export default Top

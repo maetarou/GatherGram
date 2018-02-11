@@ -1,18 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default class User extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: []
-    }
-  }
-
-  render() {
-    return(
-      <div className='p-user'>
-        <img src={this.props.user.profile_image} />
-      </div>
-    )
-  }
+const UserComponent = (props) => {
+  return(
+    <div className='p-user'>
+      <img src='http://xn--48s17vxvep85c.com/wp-content/uploads/2013/09/Vjjx8sf.jpg' />
+    </div>
+  )
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.user}
+}
+
+export default connect(mapStateToProps)(UserComponent)

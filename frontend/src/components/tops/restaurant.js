@@ -1,15 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default class Restaurant extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      gnavi: props.gnavi
-    }
-
-    console.log(this.state.gnavi)
-  }
-
+class Restaurant extends React.Component {
   render() {
     return(
       <ul>
@@ -24,3 +16,9 @@ export default class Restaurant extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.score}
+}
+
+export default connect(mapStateToProps)(Restaurant)

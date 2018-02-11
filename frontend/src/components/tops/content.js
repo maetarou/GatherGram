@@ -1,15 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import Restaurant from './restaurant'
 
-export default class Content extends React.Component {
+class Content extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       data: []
     }
   }
-
 
   render() {
     return(
@@ -44,3 +44,9 @@ export default class Content extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.content}
+}
+
+export default connect(mapStateToProps)(Content)

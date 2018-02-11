@@ -1,13 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default class PrivacyPolicy extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: []
-    }
-  }
-
+class PrivacyPolicy extends React.Component {
   render() {
     return(
       <div className='p-privacy_policy'>
@@ -62,3 +56,9 @@ export default class PrivacyPolicy extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.privacy_policy}
+}
+
+export default connect(mapStateToProps)(PrivacyPolicy)

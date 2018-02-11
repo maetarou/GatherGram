@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import FontAwesome from 'react-fontawesome'
 
@@ -45,7 +46,7 @@ const SidebarContents = (props) => {
   )
 }
 
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -85,3 +86,9 @@ export default class Sidebar extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.Sidebar}
+}
+
+export default connect(mapStateToProps)(Sidebar)
