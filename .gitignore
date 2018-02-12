@@ -27,4 +27,3 @@ vendor/bundle
 .DS_Store
 
 # config file of Instagram
-/config/omniauth.yml

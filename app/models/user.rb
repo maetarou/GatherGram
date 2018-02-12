@@ -44,11 +44,23 @@ class User < ApplicationRecord
     medias.each do |media|
       got_gather = 0
       place_count = SubmittedMedia.where(place_id: media[:location][:id]).count
+      # TODO: 点数計算アルゴリズム(適当なので要修正)
       if place_count < 6
         got_gather = 50 - (place_count * 10)
         got_gather_sum += got_gather
       end
-      SubmittedMedia.create(media_id: media[:id], user_id: self.uid, place_id: media[:location][:id] , got_gather: got_gather)
+      SubmittedMedia.create(
+          media_id: media[:id],
+          user_id: self.uid,
+          username: media[:user][:username],
+          image_link: media[:images][:low_resolution][:url],
+          caption: media.try(:caption).try(:text),
+          link: media[:link],
+          place_id: media[:location][:id],
+          name: media[:location][:place_name],
+          latitude: media[:location][:latitude],
+          longitude: media[:location][:longitude],
+          got_gather: got_gather)
     end
     got_gather_sum
   end

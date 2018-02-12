@@ -1,0 +1,10 @@
+production: &production
+  instagram:
+    key: 'a15464f6567f4273bb25576eb5873d84'
+    secret: '1d7ae35ac9de46149d5556d5a0f138f5'
+  gnavi:
+    key: 'd6f8433b2af58ff415a024ecbe0e37a8'
+development: &development
+  <<: *production
+test:
+  <<: *development
