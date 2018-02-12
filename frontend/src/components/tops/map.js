@@ -7,7 +7,6 @@ import Marker from './marker'
 const MapComponent = (props) => {
   return(
     <div className='p-map'>
-      {getInstagramContent()}
       <GoogleMap
         bootstrapURLKeys={{
           key: 'AIzaSyAEaUM4truzWM4M4Ob8s9_oUdMrhmxnzcI'
@@ -38,14 +37,14 @@ const MapComponent = (props) => {
   )
 }
 
-const getInstagramContent = () => {
-  fetch('http://localhost:3000/index')
-    .then((response) => {
-      response.json().then((res) => {
-        console.log(res)
-      })
-    })
-}
+// const getInstagramContent = () => {
+//   fetch('http://localhost:3000/index')
+//     .then((response) => {
+//       response.json().then((res) => {
+//         console.log(res)
+//       })
+//     })
+// }
 
 const mapStateToProps = (state) => {
   return {state: state.map}
