@@ -1,14 +1,4 @@
 .map {
   width: 100vw;
   height: calc(100vh - 150px);
-
-  &__marker {
-    width: 150px;
-    height: 150px;
-    position: relative;
-    right: 50px;
-    bottom: 230px;
-    border: 2px solid #000;
-    border-radius: 20px;
-  }
 }
