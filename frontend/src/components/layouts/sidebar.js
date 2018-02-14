@@ -3,12 +3,54 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import FontAwesome from 'react-fontawesome'
 
+import configureStore from '../../store/configureStore'
 import User from '../tops/user'
+
+const store = configureStore()
+
+class SidebarComponent extends React.Component {
+  render() {
+    return(
+      <div className='p-sidebar'>
+        {console.log(store.getState().Sidebar.hideFlg)}
+        {console.log(this.props.state.hideFlg)}
+        <SidebarIcon />
+        {
+          store.getState().Sidebar.hideFlg ?
+          <SidebarContents /> :
+          null
+        }
+      </div>
+    )
+  }
+}
+
+// const SidebarComponent = (props) => {
+//   return(
+//     <div className='p-sidebar'>
+//       {console.log(store.getState().Sidebar.hideFlg)}
+//       <SidebarIcon props={props} />
+//       {
+//         store.getState().Sidebar.hideFlg ?
+//         <SidebarContents /> :
+//         null
+//       }
+//     </div>
+//   )
+// }
 
 const SidebarIcon = (props) => {
   return(
-    <div onClick={props.handleClick} className='p-sidebar'>
-      <User user={props.user} />
+    <div
+      onClick={() => {
+        console.log(store.getState().Sidebar.hideFlg)
+        store.dispatch({
+          type: 'HANDLE_CLICK'
+        })
+      }}
+      className='p-sidebar'
+    >
+      <User />
     </div>
   )
 }
@@ -18,7 +60,7 @@ const SidebarContents = (props) => {
     <div className='p-sidebar__menu'>
       <div className='p-sidebar__menu__in'>
         <div className='p-sidebar__menu__in__header'>
-          {props.user.name}
+          User Name
         </div>
 
         <ul className='p-sidebar__menu__in__contents'>
@@ -41,54 +83,21 @@ const SidebarContents = (props) => {
         </ul>
       </div>
 
-      <div className='p-sidebar__menu__out' onClick={props.handleClick}></div>
+      <div
+        className='p-sidebar__menu__out'
+        onClick={() => {
+          console.log(store.getState())
+          store.dispatch({
+            type: 'HANDLE_CLICK'
+          })
+        }}>
+      </div>
     </div>
   )
-}
-
-class Sidebar extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      user: {},
-      hideSidebar: false
-    }
-
-    this.handleClick = this.handleClick.bind(this)
-    this.getUserData()
-  }
-
-  handleClick() {
-    this.setState({
-      hideSidebar: (this.state.hideSidebar ? false : true)
-    })
-  }
-
-  getUserData() {
-    return fetch('https://gathergram.herokuapp.com/user')
-             .then((response) => {
-               response.json().then((res) => {
-                 this.setState({user: res})
-               })
-             })
-  }
-
-  render() {
-    return(
-      <div className='p-sidebar'>
-        <SidebarIcon handleClick={this.handleClick} user={this.state.user} />
-        {
-          this.state.hideSidebar ?
-          <SidebarContents handleClick={this.handleClick} user={this.state.user} /> :
-          null
-        }
-      </div>
-    )
-  }
 }
 
 const mapStateToProps = (state) => {
   return {state: state.Sidebar}
 }
 
-export default connect(mapStateToProps)(Sidebar)
+export default connect(mapStateToProps)(SidebarComponent)

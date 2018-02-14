@@ -1,11 +1,14 @@
 const initialState = {
-  sidebar: ''
+  hideFlg: true
 }
 
 export default (state = initialState, action) => {
   switch(action.type) {
-    default: {
+    case 'HANDLE_CLICK':
+      return Object.assign({}, state, {
+        hideFlg: !state.hideFlg
+      })
+    default: 
       return state
-    }
   }
 }
