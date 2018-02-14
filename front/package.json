@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"webpack-dev-server --config webpack.config.development.js\" \"gulp --env development\"",
+    "build": "concurrently \"webpack --config webpack.config.production.js\" \"gulp sass image --env production\""
+  },
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
