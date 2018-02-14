@@ -14,10 +14,10 @@
 !/tmp/.keep
 
 /front/node_modules
-/front/dist/*
-!/front/dist/index.html
-!/front/dist/images
-!/front/dist/HuiFont29.ttf
+/front/public/*
+!/front/public/index.html
+!/front/public/images
+!/front/public/HuiFont29.ttf
 
 .byebug_history
 
