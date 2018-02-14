@@ -10,7 +10,6 @@
       display: inline-block;
       width: 80vw;
       height: calc(100vh - 150px);
-
       border-right: 1px solid #000;
       background-color: #F4F5F7;
 
@@ -19,6 +18,12 @@
         height: 150px;
         padding-left: 15px;
         line-height: 125px;
+
+        &__name {
+          font-size: 3em;
+          font-weight: bolder;
+          line-height: 150px;
+        }
       }
 
       &__contents {
