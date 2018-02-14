@@ -43,8 +43,8 @@ class Map extends React.Component {
           {this.props.state.contents.map((content, idx) => {
             return(
               <Marker
-                lat={34.663776}
-                lng={135.518523}
+                lat={content.media.latitude}
+                lng={content.media.longitude}
                 key={idx}
                 content={content}
                 handleClick={this.handleClick}
