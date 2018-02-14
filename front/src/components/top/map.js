@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import GoogleMap from 'google-map-react'
 
 import configureStore from '../../store/configureStore'
-import Content from './content'
+import Marker from './marker'
 
 const store = configureStore()
 
@@ -39,7 +39,6 @@ class Map extends React.Component {
           }}
           defaultZoom = {19}
         >
-          {console.log(this.props)}
           {/* コンテンツのマッピング */}
           {this.props.state.contents.map((content, idx) => {
             return(
@@ -48,6 +47,7 @@ class Map extends React.Component {
                 lng={135.518523}
                 key={idx}
                 content={content}
+                handleClick={this.handleClick}
               />
             )
           })}
@@ -55,19 +55,6 @@ class Map extends React.Component {
       </div>
     )
   }
-}
-
-
-
-const Marker = (props) => {
-  return(
-    <div className='map__marker'>
-      <img
-        src={props.content.media.image_link}
-      />
-      <Content />
-    </div>
-  )
 }
 
 const mapStateToProps = (state) => {
