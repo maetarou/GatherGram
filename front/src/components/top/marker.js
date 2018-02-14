@@ -6,13 +6,16 @@ import Content from './content'
 class Marker extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      hideContent: false
+    }
 
     this.handleCLick = this.handleCLick.bind(this)
   }
 
   handleCLick() {
-    this.props.dispatch({
-      type: 'CLICK_EVENT'
+    this.setState({
+      hideContent: !this.state.hideContent
     })
   }
 
@@ -24,7 +27,7 @@ class Marker extends React.Component {
         className='marker__img'
       />
       {
-        this.props.state.hideFlg ?
+        this.state.hideContent ?
         <Content content={this.props.content} /> :
         null
       }
