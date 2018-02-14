@@ -8,6 +8,19 @@
     border: 1px solid #000;
     border-radius: 10px;
     background-color: #FEFEFE;
+
+    &__info {
+      padding: 10px 5px;
+
+      &__caption {
+        font-size: 3.5em;
+      }
+
+      &__username {
+        font-size: 2.8em;
+        color: #666;
+      }
+    }
   }
 
   &__out {
