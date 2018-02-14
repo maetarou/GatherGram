@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    render json: current_user
+    render json: User.first
   end
 
   def get_gather
