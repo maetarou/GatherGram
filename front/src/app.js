@@ -13,6 +13,7 @@ import configureStore from './store/configureStore'
 //////////////
 // Layout
 import Header from './components/layout/header'
+import Sidebar from './components/layout/sidebar'
 // Top
 import Map from './components/top/map'
 
@@ -23,6 +24,7 @@ ReactDOM.render(
     <HashRouter>
       <div>
         <Header />
+        <Sidebar />
         <Map />
       </div>
     </HashRouter>
