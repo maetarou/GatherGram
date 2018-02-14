@@ -6,6 +6,7 @@ class Sidebar extends React.Component {
     super(props)
 
     this.handleClick = this.handleCLick.bind(this)
+    this.fetchUser()
   }
 
   handleCLick() {
@@ -14,12 +15,24 @@ class Sidebar extends React.Component {
     })
   }
 
+  fetchUser() {
+    fetch('http://localhost:3000/user')
+      .then((response) => {
+        response.json().then((res) => {
+          this.props.dispatch({
+            type: 'GET_USER',
+            value: res
+          })
+        })
+      })
+  }
+
   render() {
     return(
       <div>
         {
           this.props.state.Header.sidebarFlg ?
-          <SidebarMenu handleClick={this.handleClick} /> :
+          <SidebarMenu user={this.props.state.Sidebar.user} handleClick={this.handleClick} /> :
           null
         }
       </div>
@@ -33,6 +46,7 @@ const SidebarMenu = (props) => {
       <div className='sidebar__menu' onClick={props.handleClick}>
         <div className='sidebar__menu__in'>
           <div className='sidebar__menu__in__header'>
+            <div className='sidebar__menu__in__header__name'>{props.user.name}</div>
           </div>
 
           <div className='sidebar__menu__in__contents'>
