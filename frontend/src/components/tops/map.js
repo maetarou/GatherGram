@@ -1,56 +1,53 @@
 import React from 'react'
-import GoogleMap from 'google-map-react'
-import request from 'superagent'
+import { connect } from 'react-redux'
 
+import GoogleMap from 'google-map-react'
 import Marker from './marker'
 
-export default class Map extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: []
-    }
+const MapComponent = (props) => {
+  return(
+    <div className='p-map'>
+      <GoogleMap
+        bootstrapURLKeys={{
+          key: 'AIzaSyAEaUM4truzWM4M4Ob8s9_oUdMrhmxnzcI'
+        }}
+        defaultCenter = {{
+          lat: 34.663776,
+          lng: 135.518523
+        }}
+        defaultZoom = {19}
+      >
 
-    this.getContentsData()
-  }
-
-  getContentsData() {
-    return fetch('https://gathergram.herokuapp.com/index')
-             .then((response) => {
-               response.json().then((res) => {
-                 this.setState({data: res.contents})
-               })
-             })
-  }
-
-  render() {
-    return(
-      <div className='p-map'>
-        <GoogleMap
-          bootstrapURLKeys={{
-            key: 'AIzaSyAEaUM4truzWM4M4Ob8s9_oUdMrhmxnzcI'
-          }}
-          defaultCenter = {{
-            lat: 34.663776,
-            lng: 135.518523
-          }}
-          defaultZoom = {19}
-        >
-
-          {/* コンテンツのマッピング */}
-          {this.state.data.map((content, idx) => {
-            return(
-              <Marker
-                lat={content.location.latitude}
-                lng={content.location.longitude}
-                content={content}
-                hideContent={this.state.hideContent}
-                key={idx}
-              />
-            )
-          })}
-        </GoogleMap>
-      </div>
-    )
-  }
+        {/* コンテンツのマッピング */}
+        {/*}
+        {getInstagramContent().map((content, idx) => {
+          return(
+            <Marker
+              lat={content.location.latitude}
+              lng={content.location.longitude}
+              content={content}
+              hideContent={this.state.hideContent}
+              key={idx}
+            />
+          )
+        })}
+        */}
+      </GoogleMap>
+    </div>
+  )
 }
+
+// const getInstagramContent = () => {
+//   fetch('http://localhost:3000/index')
+//     .then((response) => {
+//       response.json().then((res) => {
+//         console.log(res)
+//       })
+//     })
+// }
+
+const mapStateToProps = (state) => {
+  return {state: state.map}
+}
+
+export default connect(mapStateToProps)(MapComponent)

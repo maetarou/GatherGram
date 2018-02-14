@@ -1,5 +1,6 @@
 class GathergramController < ApplicationController
   include GnaviApi
+
   def index
     contents = Array.new
      # 本来なら位置情報を基に適切なメディアを取ってくる(SubmittedMediaModelに書く)

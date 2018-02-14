@@ -1,29 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default class Score extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: []
-    }
-
-    this.getScore()
-  }
-
-  getScore() {
-    return fetch('https://gathergram.herokuapp.com/user')
-             .then((response) => {
-               response.json().then((res) => {
-                 this.setState({score: res.gather})
-               })
-             })
-  }
-
-  render() {
-    return(
-      <div className='l-score'>
-        {this.state.score}Gather
-      </div>
-    )
-  }
+const ScoreComponent = (props) => {
+  return(
+    <div className='l-score'>
+      100Gather
+    </div>
+  )
 }
+
+const mapStateToProps = (state) => {
+  return {state: state.score}
+}
+
+export default connect(mapStateToProps)(ScoreComponent)

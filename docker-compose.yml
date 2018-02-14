@@ -1,11 +1,13 @@
 version: '3'
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: ./docker/server/Dockerfile
     container_name: "gather_gram_server"
     ports:
       - "3000:3000"
-    command: bundle exec rails s
+    command: bundle exec rails s -b 0.0.0.0
     volumes:
       - .:/home/GatherGram
     depends_on:
@@ -14,7 +16,9 @@ services:
     stdin_open: true
 
   front:
-    build: ./frontend/.
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
     container_name: "gather_gram_front"
     ports:
       - "8080:8080"
@@ -31,6 +35,17 @@ services:
       - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    container_name: "nginx"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+      - ./public:/home/GatherGram/public
 
 volumes:
   mysql-data:
