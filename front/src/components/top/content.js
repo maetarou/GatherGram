@@ -11,7 +11,6 @@ class Content extends React.Component {
       <div className='content'>
         <div className='content__out'>
           <div className='content__in'>
-            {console.log(this.props)}
             <img
               src={this.props.content.media.image_link}
             />

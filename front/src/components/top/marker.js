@@ -25,7 +25,7 @@ class Marker extends React.Component {
       />
       {
         this.props.state.hideFlg ?
-        <Content /> :
+        <Content cotent={this.props.content} /> :
         null
       }
     </div>
