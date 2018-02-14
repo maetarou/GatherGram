@@ -11,8 +11,10 @@ import configureStore from './store/configureStore'
 ///////////////
 // Components
 //////////////
-// Layouts
+// Layout
 import Header from './components/layout/header'
+// Top
+import Map from './components/top/map'
 
 const store = configureStore()
 
@@ -21,6 +23,7 @@ ReactDOM.render(
     <HashRouter>
       <div>
         <Header />
+        <Map />
       </div>
     </HashRouter>
   </Provider>,
