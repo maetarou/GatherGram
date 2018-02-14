@@ -13,7 +13,7 @@ export default class Ranking extends React.Component {
   }
 
   getRankingData() {
-    return fetch('https://gathergram.herokuapp.com/ranking')
+    return fetch('http://localhost:3000/ranking')
              .then((response) => {
                response.json().then((res) => {
                  console.dir(res)

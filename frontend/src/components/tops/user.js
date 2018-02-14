@@ -8,10 +8,18 @@ export default class User extends React.Component {
     }
   }
 
+  getUser() {
+    return fetch('http://localhost:3000/user')
+             .then((response) => {
+               response.json().then((res) => {
+                 this.setState({user: res})
+               })
+             })
+  }
+
   render() {
     return(
       <div className='p-user'>
-        <img src={this.props.user.profile_image} />
       </div>
     )
   }

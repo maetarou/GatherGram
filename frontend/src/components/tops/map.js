@@ -8,17 +8,17 @@ export default class Map extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      contents: []
     }
 
     this.getContentsData()
   }
 
   getContentsData() {
-    return fetch('https://gathergram.herokuapp.com/index')
+    return fetch('http://localhost:3000/index')
              .then((response) => {
                response.json().then((res) => {
-                 this.setState({data: res.contents})
+                 this.setState({contents: res.contents})
                })
              })
   }
@@ -38,11 +38,11 @@ export default class Map extends React.Component {
         >
 
           {/* コンテンツのマッピング */}
-          {this.state.data.map((content, idx) => {
+          {this.state.contents.map((content, idx) => {
             return(
               <Marker
-                lat={content.location.latitude}
-                lng={content.location.longitude}
+                lat={content.media.latitude}
+                lng={content.media.longitude}
                 content={content}
                 hideContent={this.state.hideContent}
                 key={idx}

@@ -10,15 +10,15 @@ export default class Content extends React.Component {
     }
   }
 
-
   render() {
     return(
       <div className='p-content'>
-        <div className='p-content__out' onClick={this.props.handleClick}>
+        {console.log(this.props)}
+        <div className='p-content__out'>
           <div className='p-content__in'>
             <div className='p-content__in__images'>
-              <a href={this.props.content.link}>
-                <img src={this.props.content.imageLink} className='p-content__in__images__img' />
+              <a href={this.props.content.media.link}>
+                <img src={this.props.content.media.image_link} className='p-content__in__images__img' />
               </a>
             </div>
 
@@ -26,10 +26,10 @@ export default class Content extends React.Component {
               <ul className='p-content__in__info__list'>
                 <li>
                   <span className='p-content__in__info__list__name'>
-                    {this.props.content.username}
+                    {this.props.content.media.username}
                   </span>
                 </li>
-                <li>{this.props.content.caption}</li>
+                <li>{this.props.content.media.caption}</li>
 
                 <hr />
 

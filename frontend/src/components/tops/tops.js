@@ -14,7 +14,7 @@ export default class Top extends React.Component {
   }
 
   getUserData() {
-    return fetch('https://gathergram.herokuapp.com/user')
+    return fetch('http://localhost:3000/user')
              .then((response) => {
                response.json().then((res) => {
                  this.setState({user: res})

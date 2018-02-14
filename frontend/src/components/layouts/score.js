@@ -4,17 +4,17 @@ export default class Score extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      score: ''
     }
 
     this.getScore()
   }
 
   getScore() {
-    return fetch('https://gathergram.herokuapp.com/user')
+    return fetch('http://localhost:3000/user')
              .then((response) => {
                response.json().then((res) => {
-                 this.setState({score: res.gather})
+                 this.setState({score: res})
                })
              })
   }

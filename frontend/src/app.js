@@ -9,13 +9,11 @@ import Tops from './components/tops/tops'
 import Rankings from './components/rankings/rankings'
 import PrivacyPolicy from './components/privacy_policy/privacy_policy'
 
-(() =>  { 
-  fetch('https://gathergram.herokuapp.com/user/get_gather')
-    .then((response) => {
-      response.json().then((res) => {
-      })
-    })
-})()
+//(() =>  { 
+//  fetch('http://localhost:3000/user/get_gather',{})
+//    .then((response) => {
+//    })
+//})()
 
 const App = () => (
   <HashRouter basename="/">
