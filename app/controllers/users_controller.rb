@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def get_gather
     client = Instagram.client(access_token: session[:access_token])
-    render json: current_user.get_gather(client.user_recent_media)
+    render json: User.first.get_gather(client.user_recent_media)
   end
 
   def gather_history
