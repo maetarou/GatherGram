@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -50,6 +51,7 @@ const SidebarMenu = (props) => {
           </div>
 
           <div className='sidebar__menu__in__contents'>
+            <Link to='/ranking'>ランキング</Link>
           </div>
         </div>
       </div>
