@@ -52,6 +52,9 @@ const SidebarMenu = (props) => {
 
           <ul className='sidebar__menu__in__contents'>
             <li>
+              <Link to='/'>トップ</Link>
+            </li>
+            <li>
               <Link to='/ranking'>ランキング</Link>
             </li>
           </ul>
