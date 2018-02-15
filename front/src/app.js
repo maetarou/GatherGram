@@ -16,6 +16,8 @@ import Header from './components/layout/header'
 import Sidebar from './components/layout/sidebar'
 // Top
 import Map from './components/top/map'
+// Ranking
+import Ranking from './components/ranking/ranking'
 
 const store = configureStore()
 
@@ -27,13 +29,23 @@ const store = configureStore()
 // 
 // get_gather()
 
+const Routing = () => {
+  return(
+    <div>
+      <Route exact path='/' component={Map} />
+      <Route path='/ranking' component={Ranking} />
+    </div>
+  )
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
       <div>
         <Header />
         <Sidebar />
-        <Map />
+
+        <Routing />
       </div>
     </HashRouter>
   </Provider>,
