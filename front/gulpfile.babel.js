@@ -46,7 +46,7 @@ gulp.task('sass', () => {
     // .pipe(cmq())
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(gulpIf(config.isProduction, '../../../public/assets', './public')))
+    .pipe(gulp.dest(gulpIf(config.isProduction, './../public', './public')))
 })
 
 // imageの圧縮
