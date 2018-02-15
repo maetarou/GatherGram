@@ -27,7 +27,7 @@ class Score extends React.Component {
   render() {
     return(
       <div className='score'>
-      {this.props.state.score}score
+      {this.props.state.score}gather
       </div>
     )
   }
