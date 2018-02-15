@@ -6,6 +6,8 @@ import Sidebar from './layout/sidebar'
 import Map from './top/map'
 import Marker from './top/marker'
 import Content from './top/content'
+import Ranking from './ranking/ranking'
+import Ranker from './ranking/ranker'
 
 const main = combineReducers({
   Header,
@@ -13,7 +15,9 @@ const main = combineReducers({
   Sidebar,
   Map,
   Marker,
-  Content
+  Content,
+  Ranking,
+  Ranker
 })
 
 export default main
