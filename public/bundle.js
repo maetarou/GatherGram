@@ -26346,7 +26346,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var initialState = {
-  sidebarFlg: false
+  sidebarFlg: false,
+  profileImage: 'https://rr.img.naver.jp/mig?src=http%3A%2F%2Fcdn.mkimg.carview.co.jp%2Fminkara%2Fuserstorage%2F000%2F009%2F818%2F181%2F73ea5d0eff.jpg&twidth=1200&theight=1200&qlt=80&res_format=jpg&op=r'
 };
 
 exports.default = function () {
@@ -26357,6 +26358,10 @@ exports.default = function () {
     case 'CLICK_SIDEBAR':
       return Object.assign({}, state, {
         sidebarFlg: !state.sidebarFlg
+      });
+    case 'GET_USER_IMAGE':
+      return Object.assign({}, state, {
+        profileImage: action.value
       });
     default:
       return state;
@@ -26609,6 +26614,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var url = document.location.hostname == 'localhost' ? 'http://localhost:3000/user' : 'https://gathergram.herokuapp.com/user';
+
 var Header = function (_React$Component) {
   _inherits(Header, _React$Component);
 
@@ -26618,6 +26625,7 @@ var Header = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
     _this.handleClick = _this.handleClick.bind(_this);
+    _this.fetchUserImage();
     return _this;
   }
 
@@ -26629,13 +26637,27 @@ var Header = function (_React$Component) {
       });
     }
   }, {
+    key: 'fetchUserImage',
+    value: function fetchUserImage() {
+      var _this2 = this;
+
+      fetch(url).then(function (response) {
+        response.json().then(function (res) {
+          _this2.props.dispatch({
+            type: 'GET_USER_IMAGE',
+            value: res.profile_image
+          });
+        });
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         { className: 'header' },
         _react2.default.createElement('img', {
-          src: 'https://rr.img.naver.jp/mig?src=http%3A%2F%2Fcdn.mkimg.carview.co.jp%2Fminkara%2Fuserstorage%2F000%2F009%2F818%2F181%2F73ea5d0eff.jpg&twidth=1200&theight=1200&qlt=80&res_format=jpg&op=r',
+          src: this.props.state.profileImage,
           className: 'header__img',
           onClick: this.handleClick
         }),
@@ -26715,7 +26737,7 @@ var Score = function (_React$Component) {
         'div',
         { className: 'score' },
         this.props.state.score,
-        'score'
+        'gather'
       );
     }
   }]);
@@ -30725,10 +30747,11 @@ var Marker = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'marker', onClick: this.handleCLick },
+        { className: 'marker' },
         _react2.default.createElement('img', {
           src: this.props.content.media.image_link,
-          className: 'marker__img'
+          className: 'marker__img',
+          onClick: this.handleCLick
         }),
         this.state.hideContent ? _react2.default.createElement(_content2.default, { content: this.props.content }) : null
       );
@@ -30792,9 +30815,13 @@ var Content = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'content__in' },
-            _react2.default.createElement('img', {
-              src: this.props.content.media.image_link
-            }),
+            _react2.default.createElement(
+              'a',
+              { href: this.props.content.media.link },
+              _react2.default.createElement('img', {
+                src: this.props.content.media.image_link
+              })
+            ),
             _react2.default.createElement(
               'div',
               { className: 'content__in__info' },
