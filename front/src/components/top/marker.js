@@ -21,10 +21,11 @@ class Marker extends React.Component {
 
   render() {
     return(
-    <div className='marker' onClick={this.handleCLick}>
+    <div className='marker'>
       <img
         src={this.props.content.media.image_link}
         className='marker__img'
+        onClick={this.handleCLick}
       />
       {
         this.state.hideContent ?
