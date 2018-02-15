@@ -50,9 +50,11 @@ const SidebarMenu = (props) => {
             <div className='sidebar__menu__in__header__name'>{props.user.name}</div>
           </div>
 
-          <div className='sidebar__menu__in__contents'>
-            <Link to='/ranking'>ランキング</Link>
-          </div>
+          <ul className='sidebar__menu__in__contents'>
+            <li>
+              <Link to='/ranking'>ランキング</Link>
+            </li>
+          </ul>
         </div>
       </div>
 
