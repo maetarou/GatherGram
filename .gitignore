@@ -13,11 +13,11 @@
 !/log/.keep
 !/tmp/.keep
 
-/frontend/node_modules
-/frontend/dist/*
-!/frontend/dist/index.html
-!/frontend/dist/images
-!/frontend/dist/HuiFont29.ttf
+/front/node_modules
+/front/public/*
+!/front/public/index.html
+!/front/public/images
+!/front/public/HuiFont29.ttf
 
 .byebug_history
 
