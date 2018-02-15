@@ -2,6 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+const url = document.location.hostname == 'localhost' ?
+            'http://localhost:3000/user' :
+            'https://gathergram.herokuapp.com/user'
+
 class Sidebar extends React.Component {
   constructor(props) {
     super(props)
@@ -17,7 +21,7 @@ class Sidebar extends React.Component {
   }
 
   fetchUser() {
-    fetch('http://localhost:3000/user')
+    fetch(url)
       .then((response) => {
         response.json().then((res) => {
           this.props.dispatch({

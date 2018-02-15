@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 
 import Ranker from './ranker'
 
+const url = document.location.hostname == 'localhost' ?
+            'http://localhost:3000/ranking' :
+            'https://gathergram.herokuapp.com/ranking'
+
 class Ranking extends React.Component {
   constructor(props) {
     super(props)
@@ -11,7 +15,7 @@ class Ranking extends React.Component {
   }
 
   fetchRanking() {
-    fetch('http://localhost:3000/ranking')
+    fetch(url)
       .then((response) => {
         response.json().then((res) => {
           this.props.dispatch({

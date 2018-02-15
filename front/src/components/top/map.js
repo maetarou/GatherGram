@@ -7,6 +7,10 @@ import Marker from './marker'
 
 const store = configureStore()
 
+const url = document.location.hostname == 'localhost' ?
+            'http://localhost:3000/index' :
+            'https://gathergram.herokuapp.com/index'
+
 class Map extends React.Component {
   constructor(props) {
     super(props)
@@ -15,7 +19,7 @@ class Map extends React.Component {
   }
 
   fetchContents() {
-    fetch('http://localhost:3000/index')
+    fetch(url)
       .then((response) => {
         response.json().then((res) => {
           this.props.dispatch({

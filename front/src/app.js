@@ -21,8 +21,12 @@ import Ranking from './components/ranking/ranking'
 
 const store = configureStore()
 
+const url = document.location.hostname == 'localhost' ?
+            'http://localhost:3000/user/get_gather' :
+            'https://gathergram.herokuapp.com/user/get_gather'
+
 // const get_gather = () => {
-//   fetch('http://localhost:3000/user/get_gather')
+//   fetch(url)
 //     .then((response) => {
 //     })
 // }

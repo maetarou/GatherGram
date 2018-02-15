@@ -1,6 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+const url = document.location.hostname == 'localhost' ?
+            'http://localhost:3000/user' :
+            'https://gathergram.herokuapp.com/user'
+
 class Score extends React.Component {
   constructor(props) {
     super(props)
@@ -9,7 +13,7 @@ class Score extends React.Component {
   }
 
   fetchScore() {
-    fetch('http://localhost:3000/user')
+    fetch(url)
       .then((response) => {
         response.json().then((res) => {
           this.props.dispatch({
