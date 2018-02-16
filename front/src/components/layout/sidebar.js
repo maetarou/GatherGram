@@ -62,6 +62,9 @@ const SidebarMenu = (props) => {
               <Link to='/ranking'>ランキング</Link>
             </li>
             <li>
+              <Link to='/gather/history'>履歴</Link>
+            </li>
+            <li>
               <Link to='/privacy_policy'>プライバシーポリシー</Link>
             </li>
           </ul>

@@ -20,6 +20,8 @@ import Map from './components/top/map'
 import Ranking from './components/ranking/ranking'
 // PrivacyPolicy
 import PrivacyPolicy from './components/privacy_policy/privacy_policy'
+// GatherHistory
+import GatherHistory from './components/gather/history'
 
 const store = configureStore()
 
@@ -41,6 +43,7 @@ const Routing = () => {
       <Route exact path='/' component={Map} />
       <Route path='/ranking' component={Ranking} />
       <Route path='/privacy_policy' component={PrivacyPolicy} />
+      <Route path='/gather/history'component={GatherHistory} />
     </div>
   )
 }

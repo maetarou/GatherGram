@@ -8,6 +8,7 @@ import Marker from './top/marker'
 import Content from './top/content'
 import Ranking from './ranking/ranking'
 import Ranker from './ranking/ranker'
+import GatherHistory from './gather/history'
 
 const main = combineReducers({
   Header,
@@ -17,7 +18,8 @@ const main = combineReducers({
   Marker,
   Content,
   Ranking,
-  Ranker
+  Ranker,
+  GatherHistory
 })
 
 export default main
