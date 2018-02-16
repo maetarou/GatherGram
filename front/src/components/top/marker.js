@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import Content from './content'
 
 class Marker extends React.Component {
   constructor(props) {
@@ -33,25 +34,6 @@ class Marker extends React.Component {
     </div>
     )
   }
-}
-
-const Content = (props) => {
-  return(
-    <div className='content'>
-      <div className='content__out' onClick={props.handleClick}>
-        {console.log(props)}
-        <div className='content__in'>
-          <img
-            src={props.content.media.image_link}
-          />
-          <div className='content__in__info'>
-            <div className='content__in__info__caption'>{props.content.media.caption}</div>
-            <div className='content__in__info__username'>by {props.content.media.username}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
 }
 
 const mapStateToProps = (state) => {
