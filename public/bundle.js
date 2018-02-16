@@ -432,6 +432,25 @@ module.exports = invariant;
 
 /***/ }),
 /* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(71);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
+
+
+
+
+
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -471,25 +490,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(71);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
-
-
-
-
-
 
 /***/ }),
 /* 7 */
@@ -825,7 +825,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(5);
+var emptyFunction = __webpack_require__(6);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -1903,7 +1903,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(5);
+var emptyFunction = __webpack_require__(6);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -3455,7 +3455,7 @@ var _app = __webpack_require__(117);
 
 var _app2 = _interopRequireDefault(_app);
 
-var _reduxThunk = __webpack_require__(126);
+var _reduxThunk = __webpack_require__(127);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -4239,7 +4239,7 @@ var _reactDom = __webpack_require__(28);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
 var _reactRouterDom = __webpack_require__(21);
 
@@ -4247,23 +4247,33 @@ var _configureStore = __webpack_require__(50);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-var _header = __webpack_require__(127);
+var _header = __webpack_require__(128);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _sidebar = __webpack_require__(129);
+var _sidebar = __webpack_require__(130);
 
 var _sidebar2 = _interopRequireDefault(_sidebar);
 
-var _map = __webpack_require__(130);
+var _map = __webpack_require__(131);
 
 var _map2 = _interopRequireDefault(_map);
 
-var _ranking = __webpack_require__(157);
+var _ranking = __webpack_require__(158);
 
 var _ranking2 = _interopRequireDefault(_ranking);
 
+var _privacy_policy = __webpack_require__(160);
+
+var _privacy_policy2 = _interopRequireDefault(_privacy_policy);
+
+var _history = __webpack_require__(161);
+
+var _history2 = _interopRequireDefault(_history);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// PrivacyPolicy
 
 // Top
 
@@ -4273,6 +4283,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //////////////
 // Layout
 var store = (0, _configureStore2.default)();
+// GatherHistory
+
 // Ranking
 
 
@@ -4296,7 +4308,9 @@ var Routing = function Routing() {
     'div',
     null,
     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _map2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/ranking', component: _ranking2.default })
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/ranking', component: _ranking2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/privacy_policy', component: _privacy_policy2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/gather/history', component: _history2.default })
   );
 };
 
@@ -4330,7 +4344,7 @@ _reactDom2.default.render(_react2.default.createElement(
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(7),n=__webpack_require__(11),p=__webpack_require__(5),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(7),n=__webpack_require__(11),p=__webpack_require__(6),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -4370,7 +4384,7 @@ var _assign = __webpack_require__(7);
 var emptyObject = __webpack_require__(11);
 var invariant = __webpack_require__(8);
 var warning = __webpack_require__(12);
-var emptyFunction = __webpack_require__(5);
+var emptyFunction = __webpack_require__(6);
 var checkPropTypes = __webpack_require__(15);
 
 // TODO: this is special because it gets imported during build.
@@ -5726,7 +5740,7 @@ module.exports = react;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),l=__webpack_require__(29),B=__webpack_require__(7),C=__webpack_require__(5),ba=__webpack_require__(30),da=__webpack_require__(31),ea=__webpack_require__(13),fa=__webpack_require__(32),ia=__webpack_require__(33),D=__webpack_require__(11);
+var aa=__webpack_require__(0),l=__webpack_require__(29),B=__webpack_require__(7),C=__webpack_require__(6),ba=__webpack_require__(30),da=__webpack_require__(31),ea=__webpack_require__(13),fa=__webpack_require__(32),ia=__webpack_require__(33),D=__webpack_require__(11);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -6028,7 +6042,7 @@ var invariant = __webpack_require__(8);
 var warning = __webpack_require__(12);
 var ExecutionEnvironment = __webpack_require__(29);
 var _assign = __webpack_require__(7);
-var emptyFunction = __webpack_require__(5);
+var emptyFunction = __webpack_require__(6);
 var EventListener = __webpack_require__(30);
 var getActiveElement = __webpack_require__(31);
 var shallowEqual = __webpack_require__(13);
@@ -21659,7 +21673,7 @@ function createProvider() {
 
 
 
-var emptyFunction = __webpack_require__(5);
+var emptyFunction = __webpack_require__(6);
 var invariant = __webpack_require__(8);
 var warning = __webpack_require__(12);
 var assign = __webpack_require__(7);
@@ -22209,7 +22223,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 
-var emptyFunction = __webpack_require__(5);
+var emptyFunction = __webpack_require__(6);
 var invariant = __webpack_require__(8);
 var ReactPropTypesSecret = __webpack_require__(16);
 
@@ -26320,6 +26334,10 @@ var _ranker = __webpack_require__(125);
 
 var _ranker2 = _interopRequireDefault(_ranker);
 
+var _history = __webpack_require__(126);
+
+var _history2 = _interopRequireDefault(_history);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var main = (0, _redux.combineReducers)({
@@ -26330,7 +26348,8 @@ var main = (0, _redux.combineReducers)({
   Marker: _marker2.default,
   Content: _content2.default,
   Ranking: _ranking2.default,
-  Ranker: _ranker2.default
+  Ranker: _ranker2.default,
+  GatherHistory: _history2.default
 });
 
 exports.default = main;
@@ -26559,6 +26578,34 @@ exports.default = function () {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var initialState = {
+  gatherHistory: []
+};
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'GET_HISTORY':
+      return Object.assign({}, state, {
+        gatherHistory: action.value
+      });
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+/* 127 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 exports.__esModule = true;
 function createThunkMiddleware(extraArgument) {
   return function (_ref) {
@@ -26582,7 +26629,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 exports['default'] = thunk;
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26598,11 +26645,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
 var _reactRouterDom = __webpack_require__(21);
 
-var _score = __webpack_require__(128);
+var _score = __webpack_require__(129);
 
 var _score2 = _interopRequireDefault(_score);
 
@@ -26676,7 +26723,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26692,7 +26739,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26752,7 +26799,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Score);
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26768,7 +26815,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
 var _reactRouterDom = __webpack_require__(21);
 
@@ -26869,6 +26916,24 @@ var SidebarMenu = function SidebarMenu(props) {
               { to: '/ranking' },
               '\u30E9\u30F3\u30AD\u30F3\u30B0'
             )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/gather/history' },
+              '\u5C65\u6B74'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/privacy_policy' },
+              '\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC'
+            )
           )
         )
       )
@@ -26884,7 +26949,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Sidebar);
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26900,9 +26965,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
-var _googleMapReact = __webpack_require__(131);
+var _googleMapReact = __webpack_require__(132);
 
 var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
 
@@ -26910,7 +26975,7 @@ var _configureStore = __webpack_require__(50);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-var _marker = __webpack_require__(156);
+var _marker = __webpack_require__(157);
 
 var _marker2 = _interopRequireDefault(_marker);
 
@@ -26996,7 +27061,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Map);
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27007,7 +27072,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _google_map = __webpack_require__(132);
+var _google_map = __webpack_require__(133);
 
 var _google_map2 = _interopRequireDefault(_google_map);
 
@@ -27016,7 +27081,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _google_map2.default;
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27046,11 +27111,11 @@ var _shallowEqual = __webpack_require__(13);
 
 var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-var _marker_dispatcher = __webpack_require__(133);
+var _marker_dispatcher = __webpack_require__(134);
 
 var _marker_dispatcher2 = _interopRequireDefault(_marker_dispatcher);
 
-var _google_map_map = __webpack_require__(135);
+var _google_map_map = __webpack_require__(136);
 
 var _google_map_map2 = _interopRequireDefault(_google_map_map);
 
@@ -27058,45 +27123,45 @@ var _google_map_markers = __webpack_require__(51);
 
 var _google_map_markers2 = _interopRequireDefault(_google_map_markers);
 
-var _google_map_markers_prerender = __webpack_require__(136);
+var _google_map_markers_prerender = __webpack_require__(137);
 
 var _google_map_markers_prerender2 = _interopRequireDefault(_google_map_markers_prerender);
 
-var _google_heatmap = __webpack_require__(137);
+var _google_heatmap = __webpack_require__(138);
 
-var _google_map_loader = __webpack_require__(144);
+var _google_map_loader = __webpack_require__(145);
 
 var _google_map_loader2 = _interopRequireDefault(_google_map_loader);
 
-var _detect = __webpack_require__(146);
+var _detect = __webpack_require__(147);
 
 var _detect2 = _interopRequireDefault(_detect);
 
-var _geo = __webpack_require__(147);
+var _geo = __webpack_require__(148);
 
 var _geo2 = _interopRequireDefault(_geo);
 
-var _array_helper = __webpack_require__(149);
+var _array_helper = __webpack_require__(150);
 
 var _array_helper2 = _interopRequireDefault(_array_helper);
 
-var _is_plain_object = __webpack_require__(150);
+var _is_plain_object = __webpack_require__(151);
 
 var _is_plain_object2 = _interopRequireDefault(_is_plain_object);
 
-var _pick = __webpack_require__(151);
+var _pick = __webpack_require__(152);
 
 var _pick2 = _interopRequireDefault(_pick);
 
-var _raf = __webpack_require__(152);
+var _raf = __webpack_require__(153);
 
 var _raf2 = _interopRequireDefault(_raf);
 
-var _log = __webpack_require__(153);
+var _log = __webpack_require__(154);
 
 var _log2 = _interopRequireDefault(_log);
 
-var _isNumber = __webpack_require__(154);
+var _isNumber = __webpack_require__(155);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
@@ -27104,7 +27169,7 @@ var _omit = __webpack_require__(52);
 
 var _omit2 = _interopRequireDefault(_omit);
 
-var _detectElementResize = __webpack_require__(155);
+var _detectElementResize = __webpack_require__(156);
 
 var _detectElementResize2 = _interopRequireDefault(_detectElementResize);
 
@@ -28099,7 +28164,7 @@ exports.default = GoogleMap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28111,7 +28176,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _eventemitter = __webpack_require__(134);
+var _eventemitter = __webpack_require__(135);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -28164,7 +28229,7 @@ var MarkerDispatcher = function (_EventEmitter) {
 exports.default = MarkerDispatcher;
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28460,7 +28525,7 @@ if (true) {
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28523,7 +28588,7 @@ var GoogleMapMap = function (_Component) {
 exports.default = GoogleMapMap;
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28566,7 +28631,7 @@ var style = {
 };
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28577,7 +28642,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.optionsHeatmap = exports.generateHeatmap = undefined;
 
-var _fp = __webpack_require__(138);
+var _fp = __webpack_require__(139);
 
 var _fp2 = _interopRequireDefault(_fp);
 
@@ -28606,15 +28671,15 @@ var optionsHeatmap = exports.optionsHeatmap = function optionsHeatmap(instance, 
 };
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _ = __webpack_require__(139).runInContext();
-module.exports = __webpack_require__(141)(_, _);
+var _ = __webpack_require__(140).runInContext();
+module.exports = __webpack_require__(142)(_, _);
 
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -28755,10 +28820,10 @@ u=-1,i=t[o];++u<c;){var h=f[u],s=h.type,h=(0,h.iteratee)(i);if(2==s)i=h;else if(
 var e=$e(r);e.__index__=0,e.__values__=T,t?u.__wrapped__=e:t=e;var u=e,r=r.__wrapped__}return u.__wrapped__=n,t},An.prototype.reverse=function(){var n=this.__wrapped__;return n instanceof Un?(this.__actions__.length&&(n=new Un(this)),n=n.reverse(),n.__actions__.push({func:Ye,args:[Ke],thisArg:T}),new On(n,this.__chain__)):this.thru(Ke)},An.prototype.toJSON=An.prototype.valueOf=An.prototype.value=function(){return wr(this.__wrapped__,this.__actions__)},An.prototype.first=An.prototype.head,ji&&(An.prototype[ji]=Qe),
 An}(); true?(Fn._=rt, !(__WEBPACK_AMD_DEFINE_RESULT__ = (function(){return rt}).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))):Pn?((Pn.exports=rt)._=rt,Nn._=rt):Fn._=rt}).call(this);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20), __webpack_require__(140)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20), __webpack_require__(141)(module)))
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -28786,11 +28851,11 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var mapping = __webpack_require__(142),
-    fallbackHolder = __webpack_require__(143);
+var mapping = __webpack_require__(143),
+    fallbackHolder = __webpack_require__(144);
 
 /** Built-in value reference. */
 var push = Array.prototype.push;
@@ -29365,7 +29430,7 @@ module.exports = baseConvert;
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports) {
 
 /** Used to map aliases to their real names. */
@@ -29739,7 +29804,7 @@ exports.skipRearg = {
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports) {
 
 /**
@@ -29751,7 +29816,7 @@ module.exports = {};
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29774,7 +29839,7 @@ var _customPromise = new Promise(function (resolve) {
 // TODO add libraries language and other map options
 function googleMapLoader(bootstrapURLKeys, heatmapLibrary) {
   if (!$script_) {
-    $script_ = __webpack_require__(145); // eslint-disable-line
+    $script_ = __webpack_require__(146); // eslint-disable-line
   }
 
   // call from outside google-map-react
@@ -29833,7 +29898,7 @@ function googleMapLoader(bootstrapURLKeys, heatmapLibrary) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -29966,7 +30031,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30022,7 +30087,7 @@ function detectBrowser() {
 }
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30044,7 +30109,7 @@ var _lat_lng = __webpack_require__(54);
 
 var _lat_lng2 = _interopRequireDefault(_lat_lng);
 
-var _transform = __webpack_require__(148);
+var _transform = __webpack_require__(149);
 
 var _transform2 = _interopRequireDefault(_transform);
 
@@ -30182,7 +30247,7 @@ var Geo = function () {
 exports.default = Geo;
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30364,7 +30429,7 @@ var Transform = function () {
 exports.default = Transform;
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30387,7 +30452,7 @@ function isArraysEqualEps(arrayA, arrayB, eps) {
 }
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30426,7 +30491,7 @@ function isPlainObject(obj) {
 }
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30448,7 +30513,7 @@ function pick(obj, fn) {
 }
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30469,7 +30534,7 @@ function raf(callback) {
 }
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30485,7 +30550,7 @@ var log2 = Math.log2 ? Math.log2 : function (x) {
 exports.default = log2;
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30510,7 +30575,7 @@ function isNumber(value) {
 }
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30689,7 +30754,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30705,7 +30770,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30797,7 +30862,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Marker);
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30813,9 +30878,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
-var _ranker = __webpack_require__(158);
+var _ranker = __webpack_require__(159);
 
 var _ranker2 = _interopRequireDefault(_ranker);
 
@@ -30882,7 +30947,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Ranking);
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30898,7 +30963,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30951,6 +31016,263 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Ranker);
+
+/***/ }),
+/* 160 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PrivacyPolicy = function (_React$Component) {
+  _inherits(PrivacyPolicy, _React$Component);
+
+  function PrivacyPolicy(props) {
+    _classCallCheck(this, PrivacyPolicy);
+
+    return _possibleConstructorReturn(this, (PrivacyPolicy.__proto__ || Object.getPrototypeOf(PrivacyPolicy)).call(this, props));
+  }
+
+  _createClass(PrivacyPolicy, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'p-privacy_policy' },
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'GatherSpot\'s PrivacyPolicy'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          '\'GatherSpot\' is a tool for facilitating community of region by displaying Instagram\'s users contents on map around user. We would like to use this tool as many people as possible. This page is used to inform web application visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service. If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy. The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at GatherSpot , unless otherwise defined in this Privacy Policy.'
+        ),
+        _react2.default.createElement('div', { className: 'divider' }),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Information Collection and Use'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name, email address. The information that we collect will be used to contact or identify you.'
+        ),
+        _react2.default.createElement('div', { className: 'divider' }),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Cookies'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Cookies are files with small amount of data that is commonly used an anonymous unique identifier. These are sent to your browser from the website that you visit and are stored on your computer\'s hard drive. Our web application uses these "cookies" to collection information and to improve our Service. You have the option to either accept or refuse these cookies, and know when a cookie is being sent to your computer. If you choose to refuse our cookies, you may not be able to use some portions of our Service.'
+        ),
+        _react2.default.createElement('div', { className: 'divider' }),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Security'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.'
+        ),
+        _react2.default.createElement('div', { className: 'divider' }),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Links to Other Sites'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Our Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites, visit. We have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.'
+        ),
+        _react2.default.createElement('div', { className: 'divider' }),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Children\'s Privacy'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Our Services do not address anyone under the age of 13. We do not knowingly collect personal identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.'
+        ),
+        _react2.default.createElement('div', { className: 'divider' }),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Changes to This Privacy Policy'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.'
+        ),
+        _react2.default.createElement('div', { className: 'divider' }),
+        _react2.default.createElement(
+          'h2',
+          { className: 'p-privacy_policy__title' },
+          'Contact Us'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.'
+        ),
+        _react2.default.createElement('div', { className: 'divider' }),
+        _react2.default.createElement(
+          'p',
+          null,
+          'contact: GatherSpot2018@gmail.com'
+        )
+      );
+    }
+  }]);
+
+  return PrivacyPolicy;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return { state: state.PrivacyPolicy };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(PrivacyPolicy);
+
+/***/ }),
+/* 161 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var url = document.location.hostname == 'localhost' ? 'http://localhost:3000/user/gather_history' : 'https://gathergram.herokuapp.com/user/gather_history';
+
+var GalleryHistory = function (_React$Component) {
+  _inherits(GalleryHistory, _React$Component);
+
+  function GalleryHistory(props) {
+    _classCallCheck(this, GalleryHistory);
+
+    var _this = _possibleConstructorReturn(this, (GalleryHistory.__proto__ || Object.getPrototypeOf(GalleryHistory)).call(this, props));
+
+    _this.fetchHistory();
+    return _this;
+  }
+
+  _createClass(GalleryHistory, [{
+    key: 'fetchHistory',
+    value: function fetchHistory() {
+      var _this2 = this;
+
+      fetch(url).then(function (response) {
+        response.json().then(function (res) {
+          _this2.props.dispatch({
+            type: 'GET_HISTORY',
+            value: res
+          });
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'gather_history' },
+        console.log(this.props.state.gatherHistory),
+        this.props.state.gatherHistory.map(function (history, idx) {
+          return _react2.default.createElement(
+            'div',
+            {
+              className: 'gather_history__list',
+              key: idx
+            },
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'gather_history__list__score-num' },
+                history.got_gather
+              ),
+              ' gather'
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              history.caption
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'a',
+                { href: history.link },
+                history.link
+              )
+            ),
+            _react2.default.createElement('div', { className: 'divider' })
+          );
+        })
+      );
+    }
+  }]);
+
+  return GalleryHistory;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return { state: state.GatherHistory };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(GalleryHistory);
 
 /***/ })
 /******/ ]);
