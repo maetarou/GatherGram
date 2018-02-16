@@ -38,6 +38,7 @@ class GalleryHistory extends React.Component {
               <div><span className='gather_history__list__score-num'>{history.got_gather}</span> gather</div>
               <div>{history.caption}</div>
               <div><a href={history.link}>{history.link}</a></div>
+              <div className='divider'></div>
             </div>
           )
         })
