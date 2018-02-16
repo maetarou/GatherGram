@@ -26989,7 +26989,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var store = (0, _configureStore2.default)();
 
-var url = document.location.hostname == 'localhost' ? 'http://localhost:3000/index' : 'https://gathergram.herokuapp.com/index';
+var url = document.location.hostname == 'localhost' ? 'http://localhost:3000/gathergram' : 'https://gather-gram.herokuapp.com/gathergram';
 
 var Map = function (_React$Component) {
   _inherits(Map, _React$Component);
