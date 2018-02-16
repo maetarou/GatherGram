@@ -8,16 +8,21 @@ class Content extends React.Component {
 
   render() {
     return(
-      <div className='content'>
-        {console.log(this.props)}
-        <div className='content__in' onClick={this.props.handleClick}>
-          <img
-            src={this.props.content.media.image_link}
-          />
-          <div className='content__in__info'>
-            <div className='content__in__info__caption'>{this.props.content.media.caption}</div>
-            <div className='content__in__info__username'>by {this.props.content.media.username}</div>
-          </div>
+      <div className='content' onClick={this.props.handleClick}>
+        <img
+          src={this.props.content.media.image_link}
+        />
+        <div className='content__info'>
+          <div className='content__info__caption'>{this.props.content.media.caption}</div>
+          <div className='content__info__username'>by {this.props.content.media.username}</div>
+        </div>
+        <div className='content__link'>
+          <a
+            href={this.props.content.media.link}
+            target='_blank'
+          >
+            to Instagram...
+          </a>
         </div>
       </div>
     )
