@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def gather_history
-    res = SubmittedMedia.where(user_id: current_user[:uid]).order('id DESC').limit(10)
+    res = SubmittedMedia.where(user_id: User.first[:uid]).order('id DESC').limit(10)
     render json: res
   end
 end
