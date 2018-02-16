@@ -8,8 +8,8 @@ import Marker from './marker'
 const store = configureStore()
 
 const url = document.location.hostname == 'localhost' ?
-            'http://localhost:3000/index' :
-            'https://gather-gram.herokuapp.com/index'
+            'http://localhost:3000/gathergram' :
+            'https://gather-gram.herokuapp.com/gathergram'
 
 class Map extends React.Component {
   constructor(props) {
