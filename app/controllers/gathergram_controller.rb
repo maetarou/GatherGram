@@ -6,12 +6,12 @@ class GathergramController < ApplicationController
       SubmittedMedia.all.each do |media|
         content = {}
         content[:media] = media
-        content[:gnavi] = GnaviApi.get_store(media[:name], media[:latitude].to_s, media[:longitude].to_s)
+        # content[:gnavi] = GnaviApi.get_store(media[:name], media[:latitude].to_s, media[:longitude].to_s)
         contents.push(content)
     end
     response = {}
     response[:contents] = contents
-    response[:is_production] = Rails.env.production?
+    # response[:is_production] = Rails.env.production?
     render json: response
   end
 end
