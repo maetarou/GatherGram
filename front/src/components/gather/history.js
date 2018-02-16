@@ -35,7 +35,7 @@ class GalleryHistory extends React.Component {
               className='gather_history__list'
               key={idx}
             >
-              <div>{history.got_gather} gather</div>
+              <div><span className='gather_history__list__score-num'>{history.got_gather}</span> gather</div>
               <div>{history.caption}</div>
               <div><a href={history.link}>{history.link}</a></div>
             </div>
