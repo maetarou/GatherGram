@@ -4259,15 +4259,15 @@ var _map = __webpack_require__(131);
 
 var _map2 = _interopRequireDefault(_map);
 
-var _ranking = __webpack_require__(158);
+var _ranking = __webpack_require__(159);
 
 var _ranking2 = _interopRequireDefault(_ranking);
 
-var _privacy_policy = __webpack_require__(160);
+var _privacy_policy = __webpack_require__(161);
 
 var _privacy_policy2 = _interopRequireDefault(_privacy_policy);
 
-var _history = __webpack_require__(161);
+var _history = __webpack_require__(162);
 
 var _history2 = _interopRequireDefault(_history);
 
@@ -30772,6 +30772,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(5);
 
+var _content = __webpack_require__(158);
+
+var _content2 = _interopRequireDefault(_content);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30809,7 +30813,7 @@ var Marker = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'marker' },
-        this.state.hideContent ? _react2.default.createElement(Content, { content: this.props.content, handleClick: this.handleClick }) : _react2.default.createElement('img', {
+        this.state.hideContent ? _react2.default.createElement(_content2.default, { content: this.props.content, handleClick: this.handleClick }) : _react2.default.createElement('img', {
           src: this.props.content.media.image_link,
           className: 'marker__img',
           onClick: this.handleClick
@@ -30820,40 +30824,6 @@ var Marker = function (_React$Component) {
 
   return Marker;
 }(_react2.default.Component);
-
-var Content = function Content(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: 'content' },
-    _react2.default.createElement(
-      'div',
-      { className: 'content__out', onClick: props.handleClick },
-      console.log(props),
-      _react2.default.createElement(
-        'div',
-        { className: 'content__in' },
-        _react2.default.createElement('img', {
-          src: props.content.media.image_link
-        }),
-        _react2.default.createElement(
-          'div',
-          { className: 'content__in__info' },
-          _react2.default.createElement(
-            'div',
-            { className: 'content__in__info__caption' },
-            props.content.media.caption
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'content__in__info__username' },
-            'by ',
-            props.content.media.username
-          )
-        )
-      )
-    )
-  );
-};
 
 var mapStateToProps = function mapStateToProps(state) {
   return { state: state.Marker };
@@ -30880,7 +30850,92 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(5);
 
-var _ranker = __webpack_require__(159);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Content = function (_React$Component) {
+  _inherits(Content, _React$Component);
+
+  function Content(props) {
+    _classCallCheck(this, Content);
+
+    return _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
+  }
+
+  _createClass(Content, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'content', onClick: this.props.handleClick },
+        _react2.default.createElement('img', {
+          src: this.props.content.media.image_link
+        }),
+        _react2.default.createElement(
+          'div',
+          { className: 'content__info' },
+          _react2.default.createElement(
+            'div',
+            { className: 'content__info__caption' },
+            this.props.content.media.caption
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'content__info__username' },
+            'by ',
+            this.props.content.media.username
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'content__link' },
+          _react2.default.createElement(
+            'a',
+            {
+              href: this.props.content.media.link,
+              target: '_blank'
+            },
+            'to Instagram...'
+          )
+        )
+      );
+    }
+  }]);
+
+  return Content;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return { state: state.Content };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Content);
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(5);
+
+var _ranker = __webpack_require__(160);
 
 var _ranker2 = _interopRequireDefault(_ranker);
 
@@ -30947,7 +31002,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Ranking);
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31018,7 +31073,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Ranker);
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31166,7 +31221,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(PrivacyPolicy);
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
