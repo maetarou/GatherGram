@@ -13,6 +13,7 @@
     border: 1px solid #000;
     border-radius: 10px;
     background-color: #FEFEFE;
+    z-index: 2;
 
     &__info {
       padding: 10px 5px;
@@ -26,14 +27,5 @@
         color: #666;
       }
     }
-  }
-
-  &__out {
-    position: relative;
-    bottom: 800px;
-    right: 420px;
-    z-index: 2;
-    height: calc(100vh - 150px);
-    width: 100vw;
   }
 }
