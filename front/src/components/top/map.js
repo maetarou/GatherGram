@@ -9,7 +9,7 @@ const store = configureStore()
 
 const url = document.location.hostname == 'localhost' ?
             'http://localhost:3000/index' :
-            'https://gathergram.herokuapp.com/index'
+            'https://gather-gram.herokuapp.com/index'
 
 class Map extends React.Component {
   constructor(props) {
