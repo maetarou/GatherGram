@@ -1,0 +1,26 @@
+.p-privacy_policy {
+  margin: 10px 5px;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue";
+  }
+
+  font-family: "Helvetica Neue";
+  font-size: 2em;
+
+  &__title {
+    font-size: 1.5em;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: grey;
+  }
+}
+
+
