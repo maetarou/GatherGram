@@ -1,7 +1,12 @@
 .content {
   &__in {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     margin: auto;
-    margin-top: 10vh;
     width: 70vw;
     height: 60vh;
     padding: 5px;
@@ -28,7 +33,7 @@
     bottom: 800px;
     right: 420px;
     z-index: 2;
-    height: calc(100vh - (150px + 100px));
+    height: calc(100vh - 150px);
     width: 100vw;
   }
 }

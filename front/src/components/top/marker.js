@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Content from './content'
 
 class Marker extends React.Component {
   constructor(props) {
@@ -10,10 +9,10 @@ class Marker extends React.Component {
       hideContent: false
     }
 
-    this.handleCLick = this.handleCLick.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleCLick() {
+  handleClick() {
     this.setState({
       hideContent: !this.state.hideContent
     })
@@ -22,19 +21,37 @@ class Marker extends React.Component {
   render() {
     return(
     <div className='marker'>
-      <img
-        src={this.props.content.media.image_link}
-        className='marker__img'
-        onClick={this.handleCLick}
-      />
       {
         this.state.hideContent ?
-        <Content content={this.props.content} /> :
-        null
+        <Content content={this.props.content} handleClick={this.handleClick} /> :
+        <img
+          src={this.props.content.media.image_link}
+          className='marker__img'
+          onClick={this.handleClick}
+        />
       }
     </div>
     )
   }
+}
+
+const Content = (props) => {
+  return(
+    <div className='content'>
+      <div className='content__out' onClick={props.handleClick}>
+        {console.log(props)}
+        <div className='content__in'>
+          <img
+            src={props.content.media.image_link}
+          />
+          <div className='content__in__info'>
+            <div className='content__in__info__caption'>{props.content.media.caption}</div>
+            <div className='content__in__info__username'>by {props.content.media.username}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => {

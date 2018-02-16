@@ -9,13 +9,12 @@ class Content extends React.Component {
   render() {
     return(
       <div className='content'>
+        {console.log(this.props)}
         <div className='content__out'>
           <div className='content__in'>
-            <a href={this.props.content.media.link}>
-              <img
-                src={this.props.content.media.image_link}
-              />
-            </a>
+            <img
+              src={this.props.content.media.image_link}
+            />
             <div className='content__in__info'>
               <div className='content__in__info__caption'>{this.props.content.media.caption}</div>
               <div className='content__in__info__username'>by {this.props.content.media.username}</div>
