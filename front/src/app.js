@@ -18,6 +18,8 @@ import Sidebar from './components/layout/sidebar'
 import Map from './components/top/map'
 // Ranking
 import Ranking from './components/ranking/ranking'
+// PrivacyPolicy
+import PrivacyPolicy from './components/privacy_policy/privacy_policy'
 
 const store = configureStore()
 
@@ -38,6 +40,7 @@ const Routing = () => {
     <div>
       <Route exact path='/' component={Map} />
       <Route path='/ranking' component={Ranking} />
+      <Route path='/privacy_policy' component={PrivacyPolicy} />
     </div>
   )
 }
